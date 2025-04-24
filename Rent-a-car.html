@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Grand Ceylon Holidays - Rent a Car</title>
+    <link rel="shortcut icon" href="img/favicon.png" />
+    <link rel="stylesheet" href="../../../../../fonts.googleapis.com/css2abf2.css?family=Barlow:wght@300;400;500&amp;family=Poppins:wght@300;400;500;600;700&amp;display=swap">
+    <link rel="stylesheet" href="css/plugins.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <!-- Custom CSS for Interactive Map -->
+    <style>
+        .map-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .map-points-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+        
+        .map-point {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            z-index: 10;
+            transform: translate(-50%, -50%);
+            pointer-events: auto;
+        }
+        
+        .point-dot {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: #ff4838;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+        
+        .point-pulse {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: rgba(255, 72, 56, 0.4);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            animation: pulse 1.5s infinite;
+        }
+        
+        .point-label {
+            position: absolute;
+            white-space: nowrap;
+            background-color: rgba(15, 36, 84, 0.8);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            bottom: 130%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .map-point:hover .point-label {
+            opacity: 1;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(0.5);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 0;
+            }
+        }
+        
+        .location-details {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .location-info {
+            display: none;
+        }
+        
+        .location-info h4, .location-default h4 {
+            color: #0f2454;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .location-info p {
+            margin-bottom: 10px;
+        }
+        
+        .map-point:hover .point-dot {
+            background-color: #ff4838;
+        }
+        
+        .map-point:hover .point-pulse {
+            background-color: rgba(255, 72, 56, 0.4);
+        }
+        
+        .active-point .point-dot {
+            background-color: #ff4838;
+        }
+        
+        .active-point .point-pulse {
+            background-color: rgba(255, 72, 56, 0.4);
+        }
+        
+        .custom-map-marker {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #0f2454;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .marker-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #0f2454;
+        }
+        
+        .marker-pulse {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: rgba(15, 36, 84, 0.4);
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader-bg"></div>
+    <div id="preloader">
+        <div id="preloader-status">
+            <div class="preloader-position loader"> <span></span> </div>
+        </div>
+    </div>
+    <!-- Progress scroll totop -->
+    <div class="progress-wrap cursor-pointer">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+    <!-- Header Banner -->
+    <div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="6" data-background="img/slider/15.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 caption mt-90">
+                    <h5>Transportation Services</h5>
+                    <h1>Rent a <span>Car</span></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Car Rental Introduction -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 mb-50 text-center">
+                    <div class="section-subtitle mb-10">Explore Sri Lanka at Your Own Pace</div>
+                    <div class="section-title">Our Premium Car Rental Service</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 offset-md-2 text-center mb-50">
+                    <p>Experience the freedom to explore Sri Lanka's breathtaking landscapes, ancient cities, and hidden gems with our premium car rental service. Whether you're planning a family adventure, a romantic getaway, or a business trip, we offer a wide range of vehicles to suit your needs and budget.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-30">
+                    <div class="item">
+                        <div class="position-re o-hidden"> <img src="img/destination/italy1.jpg" alt="" class="img-fluid"> </div>
+                        <div class="con">
+                            <h5 style="margin-top:15px;"><a href="#">Flexible Rental Options</a></h5>
+                            <div class="line"></div>
+                            <div class="row mt-20">
+                                <div class="col-md-12 text-center">
+                                    <div class="butn-dark"> <a href="#booking-form"><span>Book Now</span></a> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-30">
+                    <div class="item">
+                        <div class="position-re o-hidden"> <img src="img/destination/italy1.jpg" alt="" class="img-fluid"> </div>
+                        <div class="con">
+                            <h5 style="margin-top:15px;"><a href="#">Professional Drivers</a></h5>
+                            <div class="line"></div>
+                            <div class="row mt-20">
+                                <div class="col-md-12 text-center">
+                                    <div class="butn-dark"> <a href="#booking-form"><span>Book Now</span></a> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-30">
+                    <div class="item">
+                        <div class="position-re o-hidden"> <img src="img/destination/italy1.jpg" alt="" class="img-fluid"> </div>
+                        <div class="con">
+                            <h5 style="margin-top:15px;"><a href="#">Well-Maintained Vehicles</a></h5>
+                            <div class="line"></div>
+                            <div class="row mt-20">
+                                <div class="col-md-12 text-center">
+                                    <div class="butn-dark"> <a href="#booking-form"><span>Book Now</span></a> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet Portfolio -->
+    <section class="fleet-portfolio section-padding bg-lightnav">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 mb-50 text-center">
+                    <div class="section-subtitle mb-10">Choose Your Perfect Ride</div>
+                    <div class="section-title">Our Fleet Portfolio</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-40">
+                    <div class="item">
+                        <div class="position-re o-hidden"> <img src="img/destination/italy1.jpg" alt="" class="img-fluid"> </div>
+                        <div class="con">
+                            <h5 style="margin-top:15px;"><a href="#"  >Economy tCars</a></h5>
+                            <div class="line"></div>
+                            <p class="mt-20 mb-20">Fuel-efficient compact cars perfect for city exploration and budget-conscious travelers.</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="mb-10"><i class="ti-check mr-10"></i> Air Conditioning</li>
+                                        <li><i class="ti-check mr-10"></i> 4 Passengers</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="mb-10"><i class="ti-check mr-10"></i> Fuel Efficient</li>
+                                        <li><i class="ti-check mr-10"></i> Manual/Auto</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-40">
+                    <div class="item">
+                        <div class="position-re o-hidden"> <img src="img/destination/italy1.jpg" alt="" class="img-fluid"> </div>
+                        <div class="con">
+                            <h5 style="margin-top:15px;"><a href="#">SUVs & Crossovers</a></h5>
+                            <div class="line"></div>
+                            <p class="mt-20 mb-20">Spacious and comfortable SUVs ideal for family trips and exploring rough terrain areas.</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="mb-10"><i class="ti-check mr-10"></i> Air Conditioning</li>
+                                        <li><i class="ti-check mr-10"></i> 7 Passengers</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="mb-10"><i class="ti-check mr-10"></i> Ample Storage</li>
+                                        <li><i class="ti-check mr-10"></i> Automatic</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-40">
+                    <div class="item">
+                        <div class="position-re o-hidden"> <img src="img/destination/italy1.jpg" alt="" class="img-fluid"> </div>
+                        <div class="con">
+                            <h5 style="margin-top:15px;"><a href="#">Premium & Luxury</a></h5>
+                            <div class="line"></div>
+                            <p class="mt-20 mb-20">Luxury vehicles offering superior comfort and style for those seeking a premium experience.</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="mb-10"><i class="ti-check mr-10"></i> Climate Control</li>
+                                        <li><i class="ti-check mr-10"></i> 5 Passengers</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="mb-10"><i class="ti-check mr-10"></i> Premium Features</li>
+                                        <li><i class="ti-check mr-10"></i> Automatic</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Map Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 mb-30">
+                    <div class="section-subtitle">Explore Sri Lanka</div>
+                    <div class="section-title">Popular <span>Destinations</span></div>
+                    <p class="mb-30">Discover the best places to visit in Sri Lanka with our car rental service. Click on any location to learn more about these amazing destinations.</p>
+                    <div class="admin-controls mb-20" style="display: none;">
+                        <button id="toggle-drag" class="btn btn-sm btn-primary">Enable Drag Mode</button>
+                        <button id="save-positions" class="btn btn-sm btn-success ml-2">Save Positions</button>
+                        <div class="position-info mt-2">Current position: <span id="position-display"></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="map-container position-relative">
+                        <img id="sri-lanka-map" src="img/sri-lanka.png" alt="Sri Lanka Map" width="100%" height="500" style="border:0; border-radius: 10px; object-fit: cover;">
+                        
+                        <!-- Map Points Overlay -->
+                        <div class="map-points-overlay">
+                            <div class="map-point" data-location="Jaffna" style="top: 12%; left: 40%;">
+                                <div class="point-dot"></div>
+                                <div class="point-pulse"></div>
+                                <div class="point-label">Jaffna</div>
+                            </div>
+                            <div class="map-point" data-location="Anuradhapura" style="top: 30%; left: 45%;">
+                                <div class="point-dot"></div>
+                                <div class="point-pulse"></div>
+                                <div class="point-label">Anuradhapura</div>
+                            </div>
+                            <div class="map-point" data-location="Trincomalee" style="top: 32%; left: 60%;">
+                                <div class="point-dot"></div>
+                                <div class="point-pulse"></div>
+                                <div class="point-label">Trincomalee</div>
+                            </div>
+                            <div class="map-point" data-location="Kandy" style="top: 48%; left: 50%;">
+                                <div class="point-dot"></div>
+                                <div class="point-pulse"></div>
+                                <div class="point-label">Kandy</div>
+                            </div>
+                            <div class="map-point" data-location="Colombo" style="top: 58%; left: 32%;">
+                                <div class="point-dot"></div>
+                                <div class="point-pulse"></div>
+                                <div class="point-label">Colombo</div>
+                            </div>
+                            <div class="map-point" data-location="Galle" style="top: 70%; left: 35%;">
+                                <div class="point-dot"></div>
+                                <div class="point-pulse"></div>
+                                <div class="point-label">Galle</div>
+                            </div>
+                            <div class="map-point" data-location="Yala" style="top: 68%; left: 55%;">
+                                <div class="point-dot"></div>
+                                <div class="point-pulse"></div>
+                                <div class="point-label">Yala</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="location-details" id="location-info">
+                        <div class="location-default">
+                            <h4>Click on any point on the map</h4>
+                            <p>Explore Sri Lanka's beautiful destinations and plan your perfect road trip with our car rental service.</p>
+                            <div class="butn-dark mt-15">
+                                <a href="#booking-form"><span>Book a Car Now</span></a>
+                            </div>
+                        </div>
+                        <div class="location-info" id="Jaffna" style="display: none;">
+                            <h4>Jaffna</h4>
+                            <p>Explore the northern cultural hub with its unique Tamil heritage, historic temples, and the magnificent Jaffna Fort.</p>
+                            <p><strong>Distance:</strong> 398 km | <strong>Driving Time:</strong> ~7-8 hours from Colombo</p>
+                            <div class="butn-dark mt-15">
+                                <a href="#booking-form"><span>Book a Car Now</span></a>
+                            </div>
+                        </div>
+                        <div class="location-info" id="Anuradhapura" style="display: none;">
+                            <h4>Anuradhapura</h4>
+                            <p>Visit the ancient capital with its well-preserved ruins, sacred Bo Tree, and magnificent stupas dating back over 2,000 years.</p>
+                            <p><strong>Distance:</strong> 206 km | <strong>Driving Time:</strong> ~4-5 hours from Colombo</p>
+                            <div class="butn-dark mt-15">
+                                <a href="#booking-form"><span>Book a Car Now</span></a>
+                            </div>
+                        </div>
+                        <div class="location-info" id="Trincomalee" style="display: none;">
+                            <h4>Trincomalee</h4>
+                            <p>Discover pristine beaches, natural harbors, and coral reefs in this eastern coastal paradise perfect for diving and snorkeling.</p>
+                            <p><strong>Distance:</strong> 257 km | <strong>Driving Time:</strong> ~6-7 hours from Colombo</p>
+                            <div class="butn-dark mt-15">
+                                <a href="#booking-form"><span>Book a Car Now</span></a>
+                            </div>
+                        </div>
+                        <div class="location-info" id="Kandy" style="display: none;">
+                            <h4>Kandy</h4>
+                            <p>Experience the cultural heart of Sri Lanka with the Temple of the Tooth Relic, beautiful botanical gardens, and scenic lake views.</p>
+                            <p><strong>Distance:</strong> 115 km | <strong>Driving Time:</strong> ~3-4 hours from Colombo</p>
+                            <div class="butn-dark mt-15">
+                                <a href="#booking-form"><span>Book a Car Now</span></a>
+                            </div>
+                        </div>
+                        <div class="location-info" id="Colombo" style="display: none;">
+                            <h4>Colombo</h4>
+                            <p>The vibrant capital city offers colonial architecture, shopping districts, museums, and a blend of modern and traditional Sri Lankan culture.</p>
+                            <p><strong>Distance:</strong> 35 km | <strong>Driving Time:</strong> ~45-60 minutes from Airport</p>
+                            <div class="butn-dark mt-15">
+                                <a href="#booking-form"><span>Book a Car Now</span></a>
+                            </div>
+                        </div>
+                        <div class="location-info" id="Galle" style="display: none;">
+                            <h4>Galle</h4>
+                            <p>Explore the historic Dutch fort, charming colonial streets, boutique shops, and beautiful beaches in this southern coastal gem.</p>
+                            <p><strong>Distance:</strong> 126 km | <strong>Driving Time:</strong> ~2-3 hours from Colombo</p>
+                            <div class="butn-dark mt-15">
+                                <a href="#booking-form"><span>Book a Car Now</span></a>
+                            </div>
+                        </div>
+                        <div class="location-info" id="Yala" style="display: none;">
+                            <h4>Yala National Park</h4>
+                            <p>Sri Lanka's most famous wildlife reserve, home to leopards, elephants, crocodiles, and hundreds of bird species in diverse habitats.</p>
+                            <p><strong>Distance:</strong> 305 km | <strong>Driving Time:</strong> ~5-6 hours from Colombo</p>
+                            <div class="butn-dark mt-15">
+                                <a href="#booking-form"><span>Book a Car Now</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Safety Measures -->
+    <section class="safety-measures section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 mb-50 text-center">
+                    <div class="section-subtitle mb-10">Your Safety is Our Priority</div>
+                    <div class="section-title">Safety Measures</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-40">
+                    <div class="item">
+                        <div class="icon mb-20"> <i class="flaticon-world"></i> </div>
+                        <div class="cont">
+                            <h3 class="mb-15">Regular Maintenance</h3>
+                            <p>All our vehicles undergo rigorous maintenance checks before each rental to ensure optimal performance and safety.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-40">
+                    <div class="item">
+                        <div class="icon mb-20"> <i class="flaticon-trekking"></i> </div>
+                        <div class="cont">
+                            <h3 class="mb-15">Sanitized Vehicles</h3>
+                            <p>Each vehicle is thoroughly cleaned and sanitized between rentals following strict hygiene protocols.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-40">
+                    <div class="item">
+                        <div class="icon mb-20"> <i class="flaticon-map"></i> </div>
+                        <div class="cont">
+                            <h3 class="mb-15">24/7 Roadside Assistance</h3>
+                            <p>Our dedicated support team is available around the clock to assist you with any issues during your rental period.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-40">
+                    <div class="item">
+                        <div class="icon mb-20"> <i class="flaticon-travel-insurance"></i> </div>
+                        <div class="cont">
+                            <h3 class="mb-15">Comprehensive Insurance</h3>
+                            <p>All rentals include comprehensive insurance coverage for your peace of mind during your journey.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rental Details -->
+    <section class="rental-details section-padding bg-lightnav">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 mb-50 text-center">
+                    <div class="section-subtitle mb-10">What You Need to Know</div>
+                    <div class="section-title">Rental Details</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-40">
+                    <div class="process">
+                        <div class="number mb-20"> <span>01</span> </div>
+                        <div class="content">
+                            <h4 class="mb-20">Requirements</h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-10"><i class="ti-check mr-10"></i> Valid driver's license</li>
+                                <li class="mb-10"><i class="ti-check mr-10"></i> Credit card for deposit</li>
+                                <li class="mb-10"><i class="ti-check mr-10"></i> Minimum age: 21 years</li>
+                                <li><i class="ti-check mr-10"></i> Passport or ID</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-40">
+                    <div class="process">
+                        <div class="number mb-20"> <span>02</span> </div>
+                        <div class="content">
+                            <h4 class="mb-20">Rental Terms</h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-10"><i class="ti-check mr-10"></i> Minimum rental: 24 hours</li>
+                                <li class="mb-10"><i class="ti-check mr-10"></i> Unlimited mileage options</li>
+                                <li class="mb-10"><i class="ti-check mr-10"></i> Fuel policy: Full to Full</li>
+                                <li><i class="ti-check mr-10"></i> Free cancellation up to 48hrs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-40">
+                    <div class="process">
+                        <div class="number mb-20"> <span>03</span> </div>
+                        <div class="content">
+                            <h4 class="mb-20">Additional Services</h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-10"><i class="ti-check mr-10"></i> Professional drivers</li>
+                                <li class="mb-10"><i class="ti-check mr-10"></i> Child seats available</li>
+                                <li class="mb-10"><i class="ti-check mr-10"></i> GPS navigation</li>
+                                <li><i class="ti-check mr-10"></i> Airport pickup/drop-off</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 mb-50 text-center">
+                    <div class="section-subtitle mb-10">Common Questions</div>
+                    <div class="section-title">Frequently Asked Questions</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <div class="accordion" id="accordionFAQ">
+                        <div class="accordion-item mb-20">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    What documents do I need to rent a car?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionFAQ">
+                                <div class="accordion-body">
+                                    You'll need a valid driver's license, passport or ID, and a credit card for the security deposit. International visitors may need an International Driving Permit alongside their national license.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item mb-20">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Is insurance included in the rental price?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionFAQ">
+                                <div class="accordion-body">
+                                    Basic insurance is included in all our rental packages. However, we recommend considering our premium insurance options for additional coverage and peace of mind during your travels.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item mb-20">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Can I hire a driver with the car?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionFAQ">
+                                <div class="accordion-body">
+                                    Yes, we offer professional driver services at an additional cost. Our drivers are experienced, knowledgeable about local routes, and can serve as informal guides to enhance your Sri Lankan experience.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item mb-20">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    What is your fuel policy?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionFAQ">
+                                <div class="accordion-body">
+                                    We operate on a "Full to Full" policy. This means you'll receive the vehicle with a full tank and are expected to return it with a full tank. If the vehicle is returned with less fuel, a refueling charge will apply.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    What happens if I have an accident or breakdown?
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionFAQ">
+                                <div class="accordion-body">
+                                    In case of an accident or breakdown, contact our 24/7 emergency support line immediately. We'll provide assistance and arrange for a replacement vehicle if necessary, minimizing disruption to your travel plans.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form -->
+    <section id="booking-form" class="booking-form section-padding bg-lightnav">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 mb-50 text-center">
+                    <div class="section-subtitle mb-10">Ready to Hit the Road?</div>
+                    <div class="section-title">Book Your Car Now</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <div class="booking-box p-40">
+                        <form class="form1 clearfix">
+                            <div class="row">
+                                <div class="col-md-6 mb-30">
+                                    <div class="input1_wrapper">
+                                        <label class="mb-10">Pick-up Date</label>
+                                        <div class="input1_inner">
+                                            <input type="text" class="form-control input datepicker" placeholder="Pick-up Date" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-30">
+                                    <div class="input1_wrapper">
+                                        <label class="mb-10">Return Date</label>
+                                        <div class="input1_inner">
+                                            <input type="text" class="form-control input datepicker" placeholder="Return Date" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-30">
+                                    <div class="input1_wrapper">
+                                        <label class="mb-10">Pick-up Location</label>
+                                        <div class="input1_inner">
+                                            <input type="text" class="form-control input" placeholder="Pick-up Location" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-30">
+                                    <div class="input1_wrapper">
+                                        <label class="mb-10">Return Location</label>
+                                        <div class="input1_inner">
+                                            <input type="text" class="form-control input" placeholder="Return Location" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-30">
+                                    <div class="select1_wrapper">
+                                        <label class="mb-10">Vehicle Type</label>
+                                        <div class="select1_inner">
+                                            <select class="select2 select" style="width: 100%">
+                                                <option value="0">Select Vehicle Type</option>
+                                                <option value="1">Economy Car</option>
+                                                <option value="2">Compact Car</option>
+                                                <option value="3">Midsize Car</option>
+                                                <option value="4">SUV</option>
+                                                <option value="5">Luxury Car</option>
+                                                <option value="6">Van/Minivan</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-30">
+                                    <div class="select1_wrapper">
+                                        <label class="mb-10">Driver Option</label>
+                                        <div class="select1_inner">
+                                            <select class="select2 select" style="width: 100%">
+                                                <option value="0">Select Driver Option</option>
+                                                <option value="1">Self-Drive</option>
+                                                <option value="2">With Driver</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-30">
+                                    <div class="input1_wrapper">
+                                        <label class="mb-10">Your Name</label>
+                                        <div class="input1_inner">
+                                            <input type="text" class="form-control input" placeholder="Your Full Name" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-30">
+                                    <div class="input1_wrapper">
+                                        <label class="mb-10">Your Email</label>
+                                        <div class="input1_inner">
+                                            <input type="email" class="form-control input" placeholder="Your Email Address" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-30">
+                                    <div class="input1_wrapper">
+                                        <label class="mb-10">Phone Number</label>
+                                        <div class="input1_inner">
+                                            <input type="text" class="form-control input" placeholder="Your Phone Number" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-30">
+                                    <div class="select1_wrapper">
+                                        <label class="mb-10">Additional Services</label>
+                                        <div class="select1_inner">
+                                            <select class="select2 select" style="width: 100%" multiple>
+                                                <option value="1">GPS Navigation</option>
+                                                <option value="2">Child Seat</option>
+                                                <option value="3">Additional Driver</option>
+                                                <option value="4">Premium Insurance</option>
+                                                <option value="5">Airport Pickup/Drop-off</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-30">
+                                    <div class="input1_wrapper">
+                                        <label class="mb-10">Special Requests</label>
+                                        <div class="input1_inner">
+                                            <textarea class="form-control input" placeholder="Any special requests or requirements" rows="4"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 text-center">
+                                    <button type="submit" class="btn-form1-submit mt-15 px-5 py-3">Check Availability</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-include"></div>
+
+    <!-- jQuery -->
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <script src="js/jquery-migrate-3.0.0.min.js"></script>
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/jquery.isotope.v3.0.2.js"></script>
+    <script src="js/pace.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scrollIt.min.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.magnific-popup.js"></script>
+    <script src="js/YouTubePopUp.js"></script>
+    <script src="js/select2.js"></script>
+    <script src="js/datepicker.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/smooth-scroll.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/navbar-loader.js"></script>
+    
+    <!-- Load footer component -->
+    <script>
+        $(function() {
+            $("#footer-include").load("components/footer.html");
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            // Show admin controls with a special key combination (Ctrl+Shift+M)
+            $(document).keydown(function(e) {
+                if (e.ctrlKey && e.shiftKey && e.which === 77) {
+                    $('.admin-controls').toggle();
+                }
+            });
+            
+            // Variables to track dragging state
+            let isDragEnabled = false;
+            let isDragging = false;
+            let selectedPoint = null;
+            let offsetX, offsetY;
+            
+            // Toggle drag mode
+            $('#toggle-drag').click(function() {
+                isDragEnabled = !isDragEnabled;
+                if (isDragEnabled) {
+                    $(this).text('Disable Drag Mode').removeClass('btn-primary').addClass('btn-danger');
+                    $('.map-points-overlay').css('pointer-events', 'auto');
+                } else {
+                    $(this).text('Enable Drag Mode').removeClass('btn-danger').addClass('btn-primary');
+                    $('.map-points-overlay').css('pointer-events', 'none');
+                }
+            });
+            
+            // Save positions button
+            $('#save-positions').click(function() {
+                let positions = [];
+                $('.map-point').each(function() {
+                    const point = $(this);
+                    const location = point.data('location');
+                    const top = point.css('top');
+                    const left = point.css('left');
+                    positions.push({
+                        location: location,
+                        top: top,
+                        left: left
+                    });
+                });
+                
+                // Save positions to local storage
+                localStorage.setItem('mapPointPositions', JSON.stringify(positions));
+                
+                // Display the positions in console for copying
+                console.log('Map Point Positions:');
+                positions.forEach(pos => console.log(`${pos.location}: top: ${pos.top}, left: ${pos.left}`));
+                alert('Positions saved! Refresh the page to see if they persist.');
+                
+                // Ensure drag mode is still enabled if needed
+                if (isDragEnabled) {
+                    $('.map-points-overlay').css('pointer-events', 'auto');
+                }
+            });
+            
+            // Load saved positions from local storage
+            function loadSavedPositions() {
+                const savedPositions = localStorage.getItem('mapPointPositions');
+                if (savedPositions) {
+                    try {
+                        const positions = JSON.parse(savedPositions);
+                        positions.forEach(pos => {
+                            $(`.map-point[data-location="${pos.location}"]`).css({
+                                top: pos.top,
+                                left: pos.left
+                            });
+                        });
+                        console.log('Loaded saved positions');
+                    } catch (e) {
+                        console.error('Error loading saved positions', e);
+                    }
+                }
+            }
+            
+            // Load saved positions on page load
+            loadSavedPositions();
+            
+            // Make points draggable
+            $('.map-point').on('mousedown', function(e) {
+                if (!isDragEnabled) return;
+                
+                e.preventDefault();
+                selectedPoint = $(this);
+                
+                // Calculate the offset of the mouse pointer relative to the point
+                const pointRect = this.getBoundingClientRect();
+                offsetX = e.clientX - pointRect.left;
+                offsetY = e.clientY - pointRect.top;
+                
+                isDragging = true;
+            });
+            
+            $(document).on('mousemove', function(e) {
+                if (!isDragging || !selectedPoint) return;
+                
+                // Calculate new position
+                const mapRect = $('.map-points-overlay')[0].getBoundingClientRect();
+                const x = e.clientX - mapRect.left - offsetX;
+                const y = e.clientY - mapRect.top - offsetY;
+                
+                // Convert to percentages for responsive positioning
+                const percentX = (x / mapRect.width) * 100;
+                const percentY = (y / mapRect.height) * 100;
+                
+                // Update position
+                selectedPoint.css({
+                    left: `${percentX}%`,
+                    top: `${percentY}%`
+                });
+                
+                // Update position display
+                $('#position-display').text(`top: ${percentY.toFixed(2)}%, left: ${percentX.toFixed(2)}%`);
+            });
+            
+            $(document).on('mouseup', function() {
+                isDragging = false;
+                selectedPoint = null;
+            });
+            
+            // Add event listener to map points for showing location info
+            $('.map-point').on('click', function(e) {
+                if (isDragEnabled || isDragging) {
+                    e.stopPropagation();
+                    return;
+                }
+                
+                // Get the location ID
+                var locationId = $(this).attr('data-location');
+                
+                // Hide all location info
+                $('.location-info').hide();
+                $('.location-default').hide();
+                
+                // Show the selected location info
+                $('#' + locationId).fadeIn();
+                
+                // Add active class to the map point
+                $(this).addClass('active-point');
+                
+                // Remove active class from other map points
+                $('.map-point').not(this).removeClass('active-point');
+                
+                e.stopPropagation(); // Prevent the click from propagating to the map
+            });
+            
+            // Show default info initially
+            $('.location-default').show();
+            $('.location-info').hide();
+        });
+    </script>
+</body>
+
+</html>

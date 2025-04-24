@@ -4539,6 +4539,15 @@ ol.comment-list li .children li {
     width: 100%;
     text-align: center;
 }
+.text-center {
+    text-align: center;
+}
+
+.mt-3 {
+    margin-top: 15px; /* Optional: space above the button */
+}
+
+
 /* footer link */
 .links.dark {
     border-style: solid;

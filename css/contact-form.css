@@ -1,0 +1,73 @@
+/* Contact Form Styling */
+.contact-heading {
+    background-color: #2a9dbe;
+    color: white;
+    padding: 15px;
+    margin: 0;
+    text-align: center;
+    font-weight: 500;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.right-sidebar.item {
+    padding: 0;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.contact__form {
+    padding: 20px;
+    background-color: #fff;
+}
+
+.contact__form .form-control {
+    height: 45px;
+    margin-bottom: 15px;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 14px;
+}
+
+.contact__form textarea.form-control {
+    height: auto;
+    min-height: 120px;
+}
+
+.contact__form .form-control:focus {
+    border-color: #2a9dbe;
+    box-shadow: 0 0 0 0.2rem rgba(42, 157, 190, 0.25);
+}
+
+.contact-btn {
+    background-color: #2a9dbe !important;
+    color: white !important;
+    border: none !important;
+    padding: 10px 25px !important;
+    border-radius: 4px !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    width: auto !important;
+    margin-top: 10px;
+}
+
+.contact-btn:hover {
+    background-color: #1e8aa8 !important;
+}
+
+.contact-btn span {
+    color: white !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .contact__form .col-md-6.form-group {
+        margin-bottom: 15px;
+    }
+}
