@@ -2,20 +2,163 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Footsteps Sri Lanka - Grand Ceylon Holidays</title>
-    <link rel="shortcut icon" href="img/favicon.png">
-    <link rel="stylesheet" href="css/plugins.css">
-    <link rel="stylesheet" href="css/style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>In the Footsteps of Sri Lanka - Grand Ceylon Holidays</title>
+    <link rel="shortcut icon" href="../img/favicon.png" />
+    <link rel="stylesheet" href="../../../../../fonts.googleapis.com/css2abf2.css?family=Barlow:wght@300;400;500&amp;family=Poppins:wght@300;400;500;600;700&amp;display=swap">
+    <link rel="stylesheet" href="../css/plugins.css" />
+    <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
-    <!-- Page content will be added here -->
-    <h1>Footsteps Sri Lanka</h1>
+    <!-- Preloader -->
+    <div class="preloader-bg"></div>
+    <div id="preloader">
+        <div id="preloader-status">
+            <div class="preloader-position loader"> <span></span> </div>
+        </div>
+    </div>
+    <!-- Progress scroll totop -->
+    <div class="progress-wrap cursor-pointer">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+    
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+    
+    <!-- Tour Page Slider -->
+    <header class="header slider">
+        <div class="owl-carousel owl-theme">
+            <!-- The opacity on the image is made with "data-overlay-dark="number". You can change it using the numbers 0-9. -->
+            <div class="text-center item bg-img" data-overlay-dark="2" data-background="../img/slider/footsteps1.jpg"></div>
+            <div class="text-center item bg-img" data-overlay-dark="2" data-background="../img/slider/footsteps2.jpg"></div>
+            <div class="text-center item bg-img" data-overlay-dark="2" data-background="../img/slider/footsteps3.jpg"></div>
+        </div>
+        <!-- arrow down -->
+        <div class="arrow bounce text-center">
+            <a href="#" data-scroll-nav="1" class=""> <i class="ti-arrow-down"></i> </a>
+        </div>
+    </header>
+    
+    <!-- Content Section -->
+    <section class="tour-page section-padding" data-scroll-index="1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mb-30">
+                    <div class="section-subtitle">Grand Ceylon Holidays</div>
+                    <div class="section-title mb-0">In the Footsteps <span>of Sri Lanka</span></div>
+                    <div class="rating mb-30"> 
+                        <i class="star active"></i> 
+                        <i class="star active"></i> 
+                        <i class="star active"></i> 
+                        <i class="star active"></i> 
+                        <i class="star active"></i>
+                    </div>
+                    
+                    <!-- Description Content -->
+                    <h4>Discover Sri Lanka Through Literary Masterpieces</h4>
+                    <p>Journey through Sri Lanka's landscapes, history, and culture through the eyes of celebrated writers with Grand Ceylon Holidays' unique "In the Footsteps of Sri Lanka" literary tour. This thoughtfully crafted experience brings to life the settings and inspirations behind renowned works of literature set in this enchanting island.</p>
+                    
+                    <p>Your literary adventure begins in Colombo, exploring locations featured in Michael Ondaatje's "Running in the Family" and Shyam Selvadurai's "Funny Boy." Visit the historic Galle Face Hotel where Arthur C. Clarke wrote parts of his science fiction masterpieces during his long residence in Sri Lanka. Journey to Kandy to discover the settings that inspired Leonard Woolf's colonial novel "The Village in the Jungle," written after his time as a civil servant in Ceylon.</p>
+                    
+                    <p>In the tea country, follow the footsteps of characters from Romesh Gunesekera's "Reef" and experience the landscapes that have inspired countless writers drawn to Sri Lanka's misty mountains and verdant plantations. Visit Galle Fort, a UNESCO World Heritage site and the setting for many scenes in Shehan Karunatilaka's Booker Prize-winning "The Seven Moons of Maali Almeida." Throughout the journey, enjoy evening literary discussions and readings in atmospheric settings, from colonial-era clubs to beachside retreats.</p>
+                    
+                    <p>Grand Ceylon Holidays enhances this literary experience with carefully selected accommodations in heritage properties and boutique hotels that reflect the island's rich cultural tapestry. Meet local writers and literary experts who provide insights into Sri Lanka's vibrant contemporary literary scene. Whether you're an avid reader or simply appreciate the power of storytelling, this tour offers a unique perspective on Sri Lanka through the words of those who have captured its essence most eloquently. Each day brings new discoveries as you explore the real-life settings that have inspired some of the most compelling literature about this extraordinary island.</p>
+                    
+                    <div class="tour-page head-icon mt-4">
+                        <p><i class="ti-time"></i> 10 Days 9 Nights</p>
+                        <p><i class="ti-user"></i> Small Groups (Max 8)</p>
+                        <p><i class="ti-location-pin"></i> Sri Lanka</p>
+                        <p><i class="ti-face-smile"></i> 9.7 Superb</p>
+                    </div>
+                </div>
+                
+                <!-- Contact Form Section -->
+                <div class="col-md-4">
+                    <div class="sidebar">
+                        <div class="right-sidebar">
+                            <div class="right-sidebar item">
+                                <h3>Contact Us</h3>
+                                <form method="post" class="right-sidebar item-form contact__form" action="../quick-book.php">
+                                    <!-- form message -->
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="alert alert-success contact__msg" style="display: none" role="alert">Your message was sent successfully.</div>
+                                        </div>
+                                    </div>
+                                    <!-- form elements -->
+                                    <div class="row">
+                                        <div class="col-md-12 form-group">
+                                            <input name="name" type="text" placeholder="Your Name *" required>
+                                        </div>
+                                        <div class="col-md-12 form-group">
+                                            <input name="email" type="email" placeholder="Your Email *" required>
+                                        </div>
+                                        <div class="col-md-12 form-group">
+                                            <input name="phone" type="text" placeholder="Your Number *" required>
+                                        </div>
+                                        <div class="col-md-12 form-group">
+                                            <select name="country" class="form-control" required>
+                                                <option value="">Select Your Country</option>
+                                                <option value="Afghanistan">Afghanistan</option>
+                                                <option value="Australia">Australia</option>
+                                                <option value="Canada">Canada</option>
+                                                <option value="China">China</option>
+                                                <option value="France">France</option>
+                                                <option value="Germany">Germany</option>
+                                                <option value="India">India</option>
+                                                <option value="Japan">Japan</option>
+                                                <option value="Russia">Russia</option>
+                                                <option value="UK">United Kingdom</option>
+                                                <option value="USA">United States</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-12 form-group">
+                                            <textarea name="message" rows="4" placeholder="Your Message *" required></textarea>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <button type="submit" class="butn-dark"><span>Send Message</span></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <div id="footer-container"></div>
     
     <!-- jQuery -->
-    <script src="js/jquery-3.6.3.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="../js/jquery-3.6.3.min.js"></script>
+    <script src="../js/jquery-migrate-3.0.0.min.js"></script>
+    <script src="../js/modernizr-2.6.2.min.js"></script>
+    <script src="../js/imagesloaded.pkgd.min.js"></script>
+    <script src="../js/jquery.isotope.v3.0.2.js"></script>
+    <script src="../js/pace.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/scrollIt.min.js"></script>
+    <script src="../js/jquery.waypoints.min.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
+    <script src="../js/jquery.stellar.min.js"></script>
+    <script src="../js/jquery.magnific-popup.js"></script>
+    <script src="../js/YouTubePopUp.js"></script>
+    <script src="../js/select2.js"></script>
+    <script src="../js/datepicker.js"></script>
+    <script src="../js/jquery.counterup.min.js"></script>
+    <script src="../js/smooth-scroll.min.js"></script>
+    <script src="../js/custom.js"></script>
+    
+    <!-- Load navbar and footer components -->
+    <script src="../js/navbar-loader.js"></script>
+    <script src="../js/footer-loader.js"></script>
+    <script src="../js/form-handler.js"></script>
 </body>
 </html>

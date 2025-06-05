@@ -2,20 +2,163 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>Discover Sri Lanka - Grand Ceylon Holidays</title>
-    <link rel="shortcut icon" href="img/favicon.png">
-    <link rel="stylesheet" href="css/plugins.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="../img/favicon.png" />
+    <link rel="stylesheet" href="../../../../../fonts.googleapis.com/css2abf2.css?family=Barlow:wght@300;400;500&amp;family=Poppins:wght@300;400;500;600;700&amp;display=swap">
+    <link rel="stylesheet" href="../css/plugins.css" />
+    <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
-    <!-- Page content will be added here -->
-    <h1>Discover Sri Lanka</h1>
+    <!-- Preloader -->
+    <div class="preloader-bg"></div>
+    <div id="preloader">
+        <div id="preloader-status">
+            <div class="preloader-position loader"> <span></span> </div>
+        </div>
+    </div>
+    <!-- Progress scroll totop -->
+    <div class="progress-wrap cursor-pointer">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+    
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+    
+    <!-- Tour Page Slider -->
+    <header class="header slider">
+        <div class="owl-carousel owl-theme">
+            <!-- The opacity on the image is made with "data-overlay-dark="number". You can change it using the numbers 0-9. -->
+            <div class="text-center item bg-img" data-overlay-dark="2" data-background="../img/slider/24.jpg"></div>
+            <div class="text-center item bg-img" data-overlay-dark="2" data-background="../img/slider/25.jpg"></div>
+            <div class="text-center item bg-img" data-overlay-dark="2" data-background="../img/slider/26.jpg"></div>
+        </div>
+        <!-- arrow down -->
+        <div class="arrow bounce text-center">
+            <a href="#" data-scroll-nav="1" class=""> <i class="ti-arrow-down"></i> </a>
+        </div>
+    </header>
+    
+    <!-- Content Section -->
+    <section class="tour-page section-padding" data-scroll-index="1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mb-30">
+                    <div class="section-subtitle">Grand Ceylon Holidays</div>
+                    <div class="section-title mb-0">Discover <span>Sri Lanka</span></div>
+                    <div class="rating mb-30"> 
+                        <i class="star active"></i> 
+                        <i class="star active"></i> 
+                        <i class="star active"></i> 
+                        <i class="star active"></i> 
+                        <i class="star active"></i>
+                    </div>
+                    
+                    <!-- Description Content -->
+                    <h4>Unveil the Wonders of the Pearl of the Indian Ocean</h4>
+                    <p>Embark on a comprehensive journey through Sri Lanka with our Discover Sri Lanka tour. Grand Ceylon Holidays has crafted this all-encompassing experience to introduce you to the island's diverse landscapes, rich cultural heritage, and warm hospitality.</p>
+                    
+                    <p>This tour offers a perfect balance of cultural exploration, wildlife encounters, and relaxation. Begin your adventure in the bustling capital of Colombo before venturing into the Cultural Triangle, where ancient cities and sacred sites await. Explore the UNESCO World Heritage sites of Sigiriya, Polonnaruwa, and Anuradhapura, each telling a unique story of Sri Lanka's fascinating past.</p>
+                    
+                    <p>Continue to the misty highlands of Nuwara Eliya, where verdant tea plantations carpet the hillsides. Experience the colonial charm of this "Little England" before heading to the wildlife sanctuaries of Yala or Udawalawe, where elephants, leopards, and a myriad of bird species roam freely. Complete your journey with a relaxing stay on the golden beaches of the south coast.</p>
+                    
+                    <p>Throughout your Discover Sri Lanka tour, our expert guides will share insights into the island's history, culture, and natural wonders. You'll enjoy authentic cuisine, comfortable accommodations, and seamless travel arrangements, allowing you to fully immerse yourself in the Sri Lankan experience.</p>
+                    
+                    <div class="tour-page head-icon mt-4">
+                        <p><i class="ti-time"></i> 10 Days 9 Nights</p>
+                        <p><i class="ti-user"></i> Group: 2 - 12 People</p>
+                        <p><i class="ti-location-pin"></i> Sri Lanka</p>
+                        <p><i class="ti-face-smile"></i> 9.6 Superb</p>
+                    </div>
+                </div>
+                
+                <!-- Contact Form Section -->
+                <div class="col-md-4">
+                    <div class="sidebar">
+                        <div class="right-sidebar">
+                            <div class="right-sidebar item">
+                                <h3>Contact Us</h3>
+                                <form method="post" class="right-sidebar item-form contact__form" action="../quick-book.php">
+                                    <!-- form message -->
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="alert alert-success contact__msg" style="display: none" role="alert">Your message was sent successfully.</div>
+                                        </div>
+                                    </div>
+                                    <!-- form elements -->
+                                    <div class="row">
+                                        <div class="col-md-12 form-group">
+                                            <input name="name" type="text" placeholder="Your Name *" required>
+                                        </div>
+                                        <div class="col-md-12 form-group">
+                                            <input name="email" type="email" placeholder="Your Email *" required>
+                                        </div>
+                                        <div class="col-md-12 form-group">
+                                            <input name="phone" type="text" placeholder="Your Number *" required>
+                                        </div>
+                                        <div class="col-md-12 form-group">
+                                            <select name="country" class="form-control" required>
+                                                <option value="">Select Your Country</option>
+                                                <option value="Afghanistan">Afghanistan</option>
+                                                <option value="Australia">Australia</option>
+                                                <option value="Canada">Canada</option>
+                                                <option value="China">China</option>
+                                                <option value="France">France</option>
+                                                <option value="Germany">Germany</option>
+                                                <option value="India">India</option>
+                                                <option value="Japan">Japan</option>
+                                                <option value="Russia">Russia</option>
+                                                <option value="UK">United Kingdom</option>
+                                                <option value="USA">United States</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-12 form-group">
+                                            <textarea name="message" rows="4" placeholder="Your Message *" required></textarea>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <button type="submit" class="butn-dark"><span>Send Message</span></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <div id="footer-container"></div>
     
     <!-- jQuery -->
-    <script src="js/jquery-3.6.3.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="../js/jquery-3.6.3.min.js"></script>
+    <script src="../js/jquery-migrate-3.0.0.min.js"></script>
+    <script src="../js/modernizr-2.6.2.min.js"></script>
+    <script src="../js/imagesloaded.pkgd.min.js"></script>
+    <script src="../js/jquery.isotope.v3.0.2.js"></script>
+    <script src="../js/pace.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/scrollIt.min.js"></script>
+    <script src="../js/jquery.waypoints.min.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
+    <script src="../js/jquery.stellar.min.js"></script>
+    <script src="../js/jquery.magnific-popup.js"></script>
+    <script src="../js/YouTubePopUp.js"></script>
+    <script src="../js/select2.js"></script>
+    <script src="../js/datepicker.js"></script>
+    <script src="../js/jquery.counterup.min.js"></script>
+    <script src="../js/smooth-scroll.min.js"></script>
+    <script src="../js/custom.js"></script>
+    
+    <!-- Load navbar and footer components -->
+    <script src="../js/navbar-loader.js"></script>
+    <script src="../js/footer-loader.js"></script>
+    <script src="../js/form-handler.js"></script>
 </body>
 </html>

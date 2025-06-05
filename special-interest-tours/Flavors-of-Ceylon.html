@@ -2,20 +2,163 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>Flavors of Ceylon - Grand Ceylon Holidays</title>
-    <link rel="shortcut icon" href="img/favicon.png">
-    <link rel="stylesheet" href="css/plugins.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="../img/favicon.png" />
+    <link rel="stylesheet" href="../../../../../fonts.googleapis.com/css2abf2.css?family=Barlow:wght@300;400;500&amp;family=Poppins:wght@300;400;500;600;700&amp;display=swap">
+    <link rel="stylesheet" href="../css/plugins.css" />
+    <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
-    <!-- Page content will be added here -->
-    <h1>Flavors of Ceylon</h1>
+    <!-- Preloader -->
+    <div class="preloader-bg"></div>
+    <div id="preloader">
+        <div id="preloader-status">
+            <div class="preloader-position loader"> <span></span> </div>
+        </div>
+    </div>
+    <!-- Progress scroll totop -->
+    <div class="progress-wrap cursor-pointer">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+    
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+    
+    <!-- Tour Page Slider -->
+    <header class="header slider">
+        <div class="owl-carousel owl-theme">
+            <!-- The opacity on the image is made with "data-overlay-dark="number". You can change it using the numbers 0-9. -->
+            <div class="text-center item bg-img" data-overlay-dark="2" data-background="../img/slider/flavors1.jpg"></div>
+            <div class="text-center item bg-img" data-overlay-dark="2" data-background="../img/slider/flavors2.jpg"></div>
+            <div class="text-center item bg-img" data-overlay-dark="2" data-background="../img/slider/flavors3.jpg"></div>
+        </div>
+        <!-- arrow down -->
+        <div class="arrow bounce text-center">
+            <a href="#" data-scroll-nav="1" class=""> <i class="ti-arrow-down"></i> </a>
+        </div>
+    </header>
+    
+    <!-- Content Section -->
+    <section class="tour-page section-padding" data-scroll-index="1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mb-30">
+                    <div class="section-subtitle">Grand Ceylon Holidays</div>
+                    <div class="section-title mb-0">Flavors of <span>Ceylon</span></div>
+                    <div class="rating mb-30"> 
+                        <i class="star active"></i> 
+                        <i class="star active"></i> 
+                        <i class="star active"></i> 
+                        <i class="star active"></i> 
+                        <i class="star active"></i>
+                    </div>
+                    
+                    <!-- Description Content -->
+                    <h4>A Culinary Journey Through Sri Lanka</h4>
+                    <p>Embark on an extraordinary gastronomic adventure with Grand Ceylon Holidays' Flavors of Ceylon tour. This immersive culinary journey takes you deep into Sri Lanka's rich food heritage, exploring the diverse flavors, techniques, and cultural influences that have shaped the island's distinctive cuisine over centuries.</p>
+                    
+                    <p>Your culinary exploration begins in Colombo with a guided tour of Pettah Market, where you'll discover exotic spices, fresh produce, and local ingredients that form the foundation of Sri Lankan cooking. Participate in a hands-on cooking class with a renowned local chef who will introduce you to the art of balancing Sri Lanka's complex spice blends and teach you how to prepare signature dishes like hoppers, ambul thiyal (sour fish curry), and authentic lamprais.</p>
+                    
+                    <p>Journey into the cultural heartland to experience regional cooking traditions, from the spicy curries of the south to the unique Tamil influences in the north. Visit a traditional cinnamon plantation to learn about Sri Lanka's most famous spice export and participate in harvesting and processing techniques passed down through generations. In the central highlands, explore verdant tea estates and discover how this iconic beverage is integrated into local cuisine and culture.</p>
+                    
+                    <p>Grand Ceylon Holidays enhances this culinary adventure with carefully curated dining experiences, from street food tours and home-cooked meals with local families to elegant dinners at historic colonial properties. Throughout your journey, expert guides provide context on how Sri Lanka's complex history—influenced by Indian, Arab, Malay, Portuguese, Dutch, and British traders and colonizers—has created one of the world's most fascinating fusion cuisines. Whether you're an experienced foodie or simply curious about new flavors, this tour offers a delicious way to understand Sri Lanka's cultural tapestry through its most authentic and memorable dishes.</p>
+                    
+                    <div class="tour-page head-icon mt-4">
+                        <p><i class="ti-time"></i> 9 Days 8 Nights</p>
+                        <p><i class="ti-user"></i> Small Groups (Max 10)</p>
+                        <p><i class="ti-location-pin"></i> Sri Lanka</p>
+                        <p><i class="ti-face-smile"></i> 9.8 Superb</p>
+                    </div>
+                </div>
+                
+                <!-- Contact Form Section -->
+                <div class="col-md-4">
+                    <div class="sidebar">
+                        <div class="right-sidebar">
+                            <div class="right-sidebar item">
+                                <h3>Contact Us</h3>
+                                <form method="post" class="right-sidebar item-form contact__form" action="../quick-book.php">
+                                    <!-- form message -->
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="alert alert-success contact__msg" style="display: none" role="alert">Your message was sent successfully.</div>
+                                        </div>
+                                    </div>
+                                    <!-- form elements -->
+                                    <div class="row">
+                                        <div class="col-md-12 form-group">
+                                            <input name="name" type="text" placeholder="Your Name *" required>
+                                        </div>
+                                        <div class="col-md-12 form-group">
+                                            <input name="email" type="email" placeholder="Your Email *" required>
+                                        </div>
+                                        <div class="col-md-12 form-group">
+                                            <input name="phone" type="text" placeholder="Your Number *" required>
+                                        </div>
+                                        <div class="col-md-12 form-group">
+                                            <select name="country" class="form-control" required>
+                                                <option value="">Select Your Country</option>
+                                                <option value="Afghanistan">Afghanistan</option>
+                                                <option value="Australia">Australia</option>
+                                                <option value="Canada">Canada</option>
+                                                <option value="China">China</option>
+                                                <option value="France">France</option>
+                                                <option value="Germany">Germany</option>
+                                                <option value="India">India</option>
+                                                <option value="Japan">Japan</option>
+                                                <option value="Russia">Russia</option>
+                                                <option value="UK">United Kingdom</option>
+                                                <option value="USA">United States</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-12 form-group">
+                                            <textarea name="message" rows="4" placeholder="Your Message *" required></textarea>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <button type="submit" class="butn-dark"><span>Send Message</span></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <div id="footer-container"></div>
     
     <!-- jQuery -->
-    <script src="js/jquery-3.6.3.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="../js/jquery-3.6.3.min.js"></script>
+    <script src="../js/jquery-migrate-3.0.0.min.js"></script>
+    <script src="../js/modernizr-2.6.2.min.js"></script>
+    <script src="../js/imagesloaded.pkgd.min.js"></script>
+    <script src="../js/jquery.isotope.v3.0.2.js"></script>
+    <script src="../js/pace.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/scrollIt.min.js"></script>
+    <script src="../js/jquery.waypoints.min.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
+    <script src="../js/jquery.stellar.min.js"></script>
+    <script src="../js/jquery.magnific-popup.js"></script>
+    <script src="../js/YouTubePopUp.js"></script>
+    <script src="../js/select2.js"></script>
+    <script src="../js/datepicker.js"></script>
+    <script src="../js/jquery.counterup.min.js"></script>
+    <script src="../js/smooth-scroll.min.js"></script>
+    <script src="../js/custom.js"></script>
+    
+    <!-- Load navbar and footer components -->
+    <script src="../js/navbar-loader.js"></script>
+    <script src="../js/footer-loader.js"></script>
+    <script src="../js/form-handler.js"></script>
 </body>
 </html>

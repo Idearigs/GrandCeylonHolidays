@@ -100,8 +100,12 @@
             background-color: #f8f9fa;
             padding: 25px;
             border-radius: 10px;
-            height: 100%;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: auto;
+            min-height: 250px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         
         .location-info {
@@ -109,9 +113,9 @@
         }
         
         .location-info h4, .location-default h4 {
-            color: #0f2454;
-            margin-bottom: 15px;
-            font-weight: 600;
+            color: #24416b;
+            margin-bottom: 10px;
+            font-size: 20px;
         }
         
         .location-info p {
@@ -398,68 +402,68 @@
                     </div>
                 </div>
                 <div class="col-md-5">
-                    <div class="location-details" id="location-info">
+                    <div class="location-details" id="location-info" style="background-color: #f8f9fa; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); height: auto; min-height: 250px;">
                         <div class="location-default">
-                            <h4>Click on any point on the map</h4>
-                            <p>Explore Sri Lanka's beautiful destinations and plan your perfect road trip with our car rental service.</p>
-                            <div class="butn-dark mt-15">
-                                <a href="#booking-form"><span>Book a Car Now</span></a>
+                            <h4 style="color: #24416b; margin-bottom: 10px; font-size: 20px;">Click on any point on the map</h4>
+                            <p style="color: #666; font-size: 14px; line-height: 1.4; margin-bottom: 15px;">Explore Sri Lanka's beautiful destinations and plan your perfect road trip with our car rental service.</p>
+                            <div class="butn-dark" style="width: 150px;">
+                                <a href="#booking-form" style="display: block; text-align: center;"><span>Book a Car Now</span></a>
                             </div>
                         </div>
                         <div class="location-info" id="Jaffna" style="display: none;">
-                            <h4>Jaffna</h4>
-                            <p>Explore the northern cultural hub with its unique Tamil heritage, historic temples, and the magnificent Jaffna Fort.</p>
-                            <p><strong>Distance:</strong> 398 km | <strong>Driving Time:</strong> ~7-8 hours from Colombo</p>
-                            <div class="butn-dark mt-15">
-                                <a href="#booking-form"><span>Book a Car Now</span></a>
+                            <h4 style="color: #24416b; margin-bottom: 10px; font-size: 20px;">Jaffna</h4>
+                            <p style="color: #666; font-size: 14px; line-height: 1.4; margin-bottom: 10px;">Explore the northern cultural hub with its unique Tamil heritage, historic temples, and the magnificent Jaffna Fort.</p>
+                            <p style="color: #666; font-size: 14px; line-height: 1.4; margin-bottom: 15px;"><strong>Distance:</strong> 398 km | <strong>Driving Time:</strong> ~7-8 hrs</p>
+                            <div class="butn-dark" style="width: 150px;">
+                                <a href="#booking-form" style="display: block; text-align: center;"><span>Book a Car Now</span></a>
                             </div>
                         </div>
                         <div class="location-info" id="Anuradhapura" style="display: none;">
-                            <h4>Anuradhapura</h4>
-                            <p>Visit the ancient capital with its well-preserved ruins, sacred Bo Tree, and magnificent stupas dating back over 2,000 years.</p>
-                            <p><strong>Distance:</strong> 206 km | <strong>Driving Time:</strong> ~4-5 hours from Colombo</p>
-                            <div class="butn-dark mt-15">
-                                <a href="#booking-form"><span>Book a Car Now</span></a>
+                            <h4 style="color: #24416b; margin-bottom: 10px; font-size: 20px;">Anuradhapura</h4>
+                            <p style="color: #666; font-size: 14px; line-height: 1.4; margin-bottom: 10px;">Visit the ancient capital with its well-preserved ruins, sacred Bo Tree, and magnificent stupas dating back over 2,000 years.</p>
+                            <p style="color: #666; font-size: 14px; line-height: 1.4; margin-bottom: 15px;"><strong>Distance:</strong> 206 km | <strong>Driving Time:</strong> ~4-5 hrs</p>
+                            <div class="butn-dark" style="width: 150px;">
+                                <a href="#booking-form" style="display: block; text-align: center;"><span>Book a Car Now</span></a>
                             </div>
                         </div>
                         <div class="location-info" id="Trincomalee" style="display: none;">
-                            <h4>Trincomalee</h4>
-                            <p>Discover pristine beaches, natural harbors, and coral reefs in this eastern coastal paradise perfect for diving and snorkeling.</p>
-                            <p><strong>Distance:</strong> 257 km | <strong>Driving Time:</strong> ~6-7 hours from Colombo</p>
-                            <div class="butn-dark mt-15">
-                                <a href="#booking-form"><span>Book a Car Now</span></a>
+                            <h4 style="color: #24416b; margin-bottom: 10px; font-size: 20px;">Trincomalee</h4>
+                            <p style="color: #666; font-size: 14px; line-height: 1.4; margin-bottom: 10px;">Discover pristine beaches, natural harbors, and coral reefs in this eastern coastal paradise perfect for diving and snorkeling.</p>
+                            <p style="color: #666; font-size: 14px; line-height: 1.4; margin-bottom: 15px;"><strong>Distance:</strong> 257 km | <strong>Driving Time:</strong> ~6-7 hrs</p>
+                            <div class="butn-dark" style="width: 150px;">
+                                <a href="#booking-form" style="display: block; text-align: center;"><span>Book a Car Now</span></a>
                             </div>
                         </div>
                         <div class="location-info" id="Kandy" style="display: none;">
-                            <h4>Kandy</h4>
-                            <p>Experience the cultural heart of Sri Lanka with the Temple of the Tooth Relic, beautiful botanical gardens, and scenic lake views.</p>
-                            <p><strong>Distance:</strong> 115 km | <strong>Driving Time:</strong> ~3-4 hours from Colombo</p>
-                            <div class="butn-dark mt-15">
-                                <a href="#booking-form"><span>Book a Car Now</span></a>
+                            <h4 style="color: #24416b; margin-bottom: 10px; font-size: 20px;">Kandy</h4>
+                            <p style="color: #666; font-size: 14px; line-height: 1.4; margin-bottom: 10px;">Experience the cultural heart of Sri Lanka with the Temple of the Tooth Relic, beautiful botanical gardens, and scenic lake views.</p>
+                            <p style="color: #666; font-size: 14px; line-height: 1.4; margin-bottom: 15px;"><strong>Distance:</strong> 115 km | <strong>Driving Time:</strong> ~3-4 hrs</p>
+                            <div class="butn-dark" style="width: 150px;">
+                                <a href="#booking-form" style="display: block; text-align: center;"><span>Book a Car Now</span></a>
                             </div>
                         </div>
                         <div class="location-info" id="Colombo" style="display: none;">
-                            <h4>Colombo</h4>
-                            <p>The vibrant capital city offers colonial architecture, shopping districts, museums, and a blend of modern and traditional Sri Lankan culture.</p>
-                            <p><strong>Distance:</strong> 35 km | <strong>Driving Time:</strong> ~45-60 minutes from Airport</p>
-                            <div class="butn-dark mt-15">
-                                <a href="#booking-form"><span>Book a Car Now</span></a>
+                            <h4 style="color: #24416b; margin-bottom: 10px; font-size: 20px;">Colombo</h4>
+                            <p style="color: #666; font-size: 14px; line-height: 1.4; margin-bottom: 10px;">The vibrant capital city offers colonial architecture, shopping districts, museums, and a blend of modern and traditional Sri Lankan culture.</p>
+                            <p style="color: #666; font-size: 14px; line-height: 1.4; margin-bottom: 15px;"><strong>Distance:</strong> 35 km | <strong>Driving Time:</strong> ~45-60 minutes from Airport</p>
+                            <div class="butn-dark" style="width: 150px;">
+                                <a href="#booking-form" style="display: block; text-align: center;"><span>Book a Car Now</span></a>
                             </div>
                         </div>
                         <div class="location-info" id="Galle" style="display: none;">
-                            <h4>Galle</h4>
-                            <p>Explore the historic Dutch fort, charming colonial streets, boutique shops, and beautiful beaches in this southern coastal gem.</p>
-                            <p><strong>Distance:</strong> 126 km | <strong>Driving Time:</strong> ~2-3 hours from Colombo</p>
-                            <div class="butn-dark mt-15">
-                                <a href="#booking-form"><span>Book a Car Now</span></a>
+                            <h4 style="color: #24416b; margin-bottom: 10px; font-size: 20px;">Galle</h4>
+                            <p style="color: #666; font-size: 14px; line-height: 1.4; margin-bottom: 10px;">Explore the historic Dutch fort, charming colonial streets, boutique shops, and beautiful beaches in this southern coastal gem.</p>
+                            <p style="color: #666; font-size: 14px; line-height: 1.4; margin-bottom: 15px;"><strong>Distance:</strong> 126 km | <strong>Driving Time:</strong> ~2-3 hrs</p>
+                            <div class="butn-dark" style="width: 150px;">
+                                <a href="#booking-form" style="display: block; text-align: center;"><span>Book a Car Now</span></a>
                             </div>
                         </div>
                         <div class="location-info" id="Yala" style="display: none;">
-                            <h4>Yala National Park</h4>
-                            <p>Sri Lanka's most famous wildlife reserve, home to leopards, elephants, crocodiles, and hundreds of bird species in diverse habitats.</p>
-                            <p><strong>Distance:</strong> 305 km | <strong>Driving Time:</strong> ~5-6 hours from Colombo</p>
-                            <div class="butn-dark mt-15">
-                                <a href="#booking-form"><span>Book a Car Now</span></a>
+                            <h4 style="color: #24416b; margin-bottom: 10px; font-size: 20px;">Yala National Park</h4>
+                            <p style="color: #666; font-size: 14px; line-height: 1.4; margin-bottom: 10px;">Sri Lanka's most famous wildlife reserve, home to leopards, elephants, crocodiles, and hundreds of bird species in diverse habitats.</p>
+                            <p style="color: #666; font-size: 14px; line-height: 1.4; margin-bottom: 15px;"><strong>Distance:</strong> 305 km | <strong>Driving Time:</strong> ~5-6 hrs</p>
+                            <div class="butn-dark" style="width: 150px;">
+                                <a href="#booking-form" style="display: block; text-align: center;"><span>Book a Car Now</span></a>
                             </div>
                         </div>
                     </div>

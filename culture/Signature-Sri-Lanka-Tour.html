@@ -2,20 +2,273 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>Signature Sri Lanka Tour - Grand Ceylon Holidays</title>
-    <link rel="shortcut icon" href="img/favicon.png">
-    <link rel="stylesheet" href="css/plugins.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="../img/favicon.png" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500&family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="../css/plugins.css" />
+    <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
-    <!-- Page content will be added here -->
-    <h1>Signature Sri Lanka Tour</h1>
+    <!-- Preloader -->
+    <div class="preloader-bg"></div>
+    <div id="preloader">
+        <div id="preloader-status">
+            <div class="preloader-position loader"> <span></span> </div>
+        </div>
+    </div>
+    <!-- Progress scroll totop -->
+    <div class="progress-wrap cursor-pointer">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+    
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
+    <script src="../js/navbar-loader.js"></script>
+    
+    <!-- Tour Page Slider -->
+    <header class="header slider">
+        <div class="owl-carousel owl-theme">
+            <!-- The opacity on the image is made with "data-overlay-dark="number". You can change it using the numbers 0-9. -->
+            <div class="text-center item bg-img" data-overlay-dark="2" data-background="../img/slider/36.jpg"></div>
+            <div class="text-center item bg-img" data-overlay-dark="2" data-background="../img/slider/37.jpg"></div>
+            <div class="text-center item bg-img" data-overlay-dark="2" data-background="../img/slider/38.jpg"></div>
+        </div>
+        <!-- arrow down -->
+        <div class="arrow bounce text-center">
+            <a href="#" data-scroll-nav="1" class=""> <i class="ti-arrow-down"></i> </a>
+        </div>
+    </header>
+    
+    <!-- Content Section -->
+    <section class="tour-page section-padding" data-scroll-index="1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mb-30">
+                    <div class="section-subtitle">Grand Ceylon Holidays</div>
+                    <div class="section-title mb-0">Signature Sri Lanka <span>Tour</span></div>
+                    <div class="rating mb-30"> 
+                        <i class="star active"></i> 
+                        <i class="star active"></i> 
+                        <i class="star active"></i> 
+                        <i class="star active"></i> 
+                        <i class="star active"></i>
+                    </div>
+                    
+                    <!-- Description Content -->
+                    <h4>The Ultimate Sri Lankan Experience</h4>
+                    <p>Indulge in the finest Sri Lankan experience with our flagship Signature Sri Lanka Tour. Grand Ceylon Holidays has crafted this premium journey to showcase the very best of the island, combining luxury accommodations with exclusive experiences and personalized service.</p>
+                    
+                    <p>Our Signature Tour represents the pinnacle of Sri Lankan travel, taking you on a carefully curated journey through the island's most remarkable destinations. Begin with VIP airport transfers and enjoy private transportation throughout your journey. Stay in handpicked luxury accommodations, from boutique heritage properties to five-star resorts, each offering exceptional comfort and authentic character.</p>
+                    
+                    <p>Experience Sri Lanka's cultural and natural wonders with expert guides who provide deep insights and exclusive access. Visit UNESCO World Heritage sites during optimal hours, enjoy private cultural performances, and participate in special culinary experiences that reveal the secrets of Sri Lankan cuisine. Wildlife enthusiasts will appreciate private safaris with expert naturalists who know exactly where to find the island's most elusive creatures.</p>
+                    
+                    <p>The Signature Sri Lanka Tour is perfect for discerning travelers seeking the ultimate Sri Lankan experience. Every aspect of your journey is tailored to ensure maximum enjoyment and minimal stress, allowing you to immerse yourself fully in the beauty, culture, and warmth of this extraordinary island paradise.</p>
+                    
+                    <div class="tour-page head-icon mt-4">
+                        <p><i class="ti-time"></i> 14 Days 13 Nights</p>
+                        <p><i class="ti-user"></i> Group: 2 - 6 People</p>
+                        <p><i class="ti-location-pin"></i> Sri Lanka</p>
+                        <p><i class="ti-face-smile"></i> 9.9 Superb</p>
+                    </div>
+                </div>
+                
+                <!-- Contact Form Section -->
+                <div class="col-md-4">
+                    <div class="sidebar">
+                        <div class="right-sidebar">
+                            <div class="right-sidebar item">
+                                <h3>Contact Us</h3>
+                                <form method="post" class="right-sidebar item-form contact__form" action="../quick-book.php">
+                                    <!-- form message -->
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="alert alert-success contact__msg" style="display: none" role="alert">Your message was sent successfully.</div>
+                                        </div>
+                                    </div>
+                                    <!-- form elements -->
+                                    <div class="row">
+                                        <div class="col-md-12 form-group">
+                                            <input name="name" type="text" placeholder="Your Name *" required>
+                                        </div>
+                                        <div class="col-md-12 form-group">
+                                            <input name="email" type="email" placeholder="Your Email *" required>
+                                        </div>
+                                        <div class="col-md-12 form-group">
+                                            <input name="phone" type="text" placeholder="Your Number *" required>
+                                        </div>
+                                        <div class="col-md-12 form-group">
+                                            <select name="country" class="form-control" required>
+                                                <option value="">Select Your Country</option>
+                                                <option value="Afghanistan">Afghanistan</option>
+                                                <option value="Australia">Australia</option>
+                                                <option value="Canada">Canada</option>
+                                                <option value="China">China</option>
+                                                <option value="France">France</option>
+                                                <option value="Germany">Germany</option>
+                                                <option value="India">India</option>
+                                                <option value="Japan">Japan</option>
+                                                <option value="Russia">Russia</option>
+                                                <option value="UK">United Kingdom</option>
+                                                <option value="USA">United States</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-12 form-group">
+                                            <textarea name="message" rows="4" placeholder="Your Message *" required></textarea>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <button type="submit" class="butn-dark"><span>Send Message</span></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="background bg-img bg-fixed section-padding pb-0" data-background="../img/slider/15.jpg" data-overlay-dark="5">
+            <div class="container">
+                <div class="row">
+                    <!-- Call Now  -->
+                    <div class="col-md-5 mb-30 mt-30">
+                        <p><i class="star-rating"></i><i class="star-rating"></i><i class="star-rating"></i><i class="star-rating"></i><i class="star-rating"></i></p>
+                        <h5>We Provide Top Destinations Expecially For You Book Now and Enjoy!</h5>
+                        <div class="phone-call mb-10">
+                            <div class="icon color-1"><span class="flaticon-phone-call"></span></div>
+                            <div class="text">
+                                <p class="color-1">Call Now</p> <a class="color-1" href="tel:855-333-4444">855 333 4444</a>
+                            </div>
+                        </div>
+                        <p><i class="ti-check"></i><small>Call us, it's toll-free.</small></p>
+                    </div>
+                    <!-- Booking From -->
+                    <div class="col-md-5 offset-md-2">
+                        <div class="testimonials-box">
+                            <div class="head-box">
+                                <h6>Testimonials</h6>
+                                <h4>Travelers Reviews</h4>
+                            </div>
+                            <div class="owl-carousel owl-theme">
+                                <div class="item">
+                                    <p>Travel dapibus asue metus the nec feusiate era the miss hendreri the vemante the lemon insan toleon nectan feugiat erat hendrerit necuis vesaire tours inilla neca ine the sene miss habitan.</p>
+                                    <div class="info">
+                                        <div class="author-img"> <img src="../img/team/04.png" alt=""> </div>
+                                        <div class="cont">
+                                            <div class="rating"> <i class="star active"></i> <i class="star active"></i> <i class="star active"></i> <i class="star active"></i> <i class="star active"></i> </div>
+                                            <h6>Nolan White</h6> <span>Guest review</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <p>Travel dapibus asue metus the nec feusiate era the miss hendreri the vemante the lemon insan toleon nectan feugiat erat hendrerit necuis vesaire tours inilla neca ine the sene miss habitan.</p>
+                                    <div class="info">
+                                        <div class="author-img"> <img src="../img/team/05.png" alt=""> </div>
+                                        <div class="cont">
+                                            <div class="rating"> <i class="star active"></i> <i class="star active"></i> <i class="star active"></i> <i class="star active"></i> <i class="star active"></i> </div>
+                                            <h6>Emily Brown</h6> <span>Guest review</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <p>Travel dapibus asue metus the nec feusiate era the miss hendreri the vemante the lemon insan toleon nectan feugiat erat hendrerit necuis vesaire tours inilla neca ine the sene miss habitan.</p>
+                                    <div class="info">
+                                        <div class="author-img"> <img src="../img/team/06.png" alt=""> </div>
+                                        <div class="cont">
+                                            <div class="rating"> <i class="star active"></i> <i class="star active"></i> <i class="star active"></i> <i class="star active"></i> <i class="star active"></i> </div>
+                                            <h6>Olivia Martin</h6> <span>Guest review</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Clients -->
+    <section class="clients">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="owl-carousel owl-theme">
+                        <div class="clients-logo">
+                            <a href="#0"><img src="../img/clients/1.png" alt=""></a>
+                        </div>
+                        <div class="clients-logo">
+                            <a href="#0"><img src="../img/clients/2.png" alt=""></a>
+                        </div>
+                        <div class="clients-logo">
+                            <a href="#0"><img src="../img/clients/3.png" alt=""></a>
+                        </div>
+                        <div class="clients-logo">
+                            <a href="#0"><img src="../img/clients/4.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer Component -->
+    <div id="footer-container"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Function to load the footer
+            function loadFooter() {
+                fetch('/components/footer.html')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        // Insert the footer HTML into the footer-container element
+                        document.getElementById('footer-container').innerHTML = data;
+                    })
+                    .catch(error => {
+                        console.error('Error loading the footer:', error);
+                    });
+            }
+
+            // Load the footer
+            loadFooter();
+        });
+    </script>
     
     <!-- jQuery -->
-    <script src="js/jquery-3.6.3.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="../js/jquery-3.6.3.min.js"></script>
+    <script src="../js/jquery-migrate-3.0.0.min.js"></script>
+    <script src="../js/modernizr-2.6.2.min.js"></script>
+    <script src="../js/imagesloaded.pkgd.min.js"></script>
+    <script src="../js/jquery.isotope.v3.0.2.js"></script>
+    <script src="../js/pace.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/scrollIt.min.js"></script>
+    <script src="../js/jquery.waypoints.min.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
+    <script src="../js/jquery.stellar.min.js"></script>
+    <script src="../js/jquery.magnific-popup.js"></script>
+    <script src="../js/YouTubePopUp.js"></script>
+    <script src="../js/select2.js"></script>
+    <script src="../js/datepicker.js"></script>
+    <script src="../js/jquery.counterup.min.js"></script>
+    <script src="../js/smooth-scroll.min.js"></script>
+    <script src="../js/custom.js"></script>
+    
+    <!-- Load navbar and footer components -->
+    <script src="../js/navbar-loader.js"></script>
+    <script src="../js/footer-loader.js"></script>
+    <script src="../js/form-handler.js"></script>
 </body>
 </html>
