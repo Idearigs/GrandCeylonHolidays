@@ -183,7 +183,7 @@
     <!-- Navbar -->
     <div id="navbar-container"></div>
     <!-- Header Banner -->
-    <div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="6" data-background="img/slider/15.jpg">
+    <div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="6" data-background="./img/cglimg/beaches.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 caption mt-90">
@@ -668,119 +668,154 @@
             <div class="row">
                 <div class="col-md-8 offset-md-2">
                     <div class="booking-box p-40">
-                        <form class="form1 clearfix">
+                        <form id="carRentalForm" method="post" action="../quick-book.php" class="contact-form" style="background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.05);">
+                            <input type="hidden" name="package" value="Car Rental Inquiry">
                             <div class="row">
-                                <div class="col-md-6 mb-30">
-                                    <div class="input1_wrapper">
-                                        <label class="mb-10">Pick-up Date</label>
-                                        <div class="input1_inner">
-                                            <input type="text" class="form-control input datepicker" placeholder="Pick-up Date" required>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Pick-up Date *</label>
+                                    <input type="date" name="pickup_date" class="custom-input" style="height: 42px; border: 1px solid #e0e0e0; border-radius: 4px; padding: 0 15px; width: 100%; font-size: 14px; background-color: #fff;" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Return Date *</label>
+                                    <input type="date" name="return_date" class="custom-input" style="height: 42px; border: 1px solid #e0e0e0; border-radius: 4px; padding: 0 15px; width: 100%; font-size: 14px; background-color: #fff;" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Pick-up Location *</label>
+                                    <input type="text" name="pickup_location" class="custom-input" placeholder="Pick-up Location" style="height: 42px; border: 1px solid #e0e0e0; border-radius: 4px; padding: 0 15px; width: 100%; font-size: 14px; background-color: #fff;" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Return Location *</label>
+                                    <input type="text" name="return_location" class="custom-input" placeholder="Return Location" style="height: 42px; border: 1px solid #e0e0e0; border-radius: 4px; padding: 0 15px; width: 100%; font-size: 14px; background-color: #fff;" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Vehicle Type *</label>
+                                    <select name="vehicle_type" class="custom-select" style="height: 42px; width: 100%; border: 1px solid #e0e0e0; border-radius: 4px; padding: 0 15px; font-size: 14px; background-color: #fff; -webkit-appearance: none; -moz-appearance: none; appearance: none; cursor: pointer; background-repeat: no-repeat; background-position: right 10px center; background-size: 16px;" required>
+                                        <option value="" selected disabled>Select Vehicle Type</option>
+                                        <option value="Economy Car">Economy Car</option>
+                                        <option value="Compact Car">Compact Car</option>
+                                        <option value="Midsize Car">Midsize Car</option>
+                                        <option value="SUV">SUV</option>
+                                        <option value="Luxury Car">Luxury Car</option>
+                                        <option value="Van/Minivan">Van/Minivan</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Driver Option *</label>
+                                    <select name="driver_option" class="custom-select" style="height: 42px; width: 100%; border: 1px solid #e0e0e0; border-radius: 4px; padding: 0 15px; font-size: 14px; background-color: #fff; -webkit-appearance: none; -moz-appearance: none; appearance: none; cursor: pointer; background-repeat: no-repeat; background-position: right 10px center; background-size: 16px;" required>
+                                        <option value="" selected disabled>Select Driver Option</option>
+                                        <option value="Self-Drive">Self-Drive</option>
+                                        <option value="With Driver">With Driver</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Your Name *</label>
+                                    <input type="text" name="name" class="custom-input" placeholder="Your Full Name" style="height: 42px; border: 1px solid #e0e0e0; border-radius: 4px; padding: 0 15px; width: 100%; font-size: 14px; background-color: #fff;" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Your Email *</label>
+                                    <input type="email" name="email" class="custom-input" placeholder="Your Email Address" style="height: 42px; border: 1px solid #e0e0e0; border-radius: 4px; padding: 0 15px; width: 100%; font-size: 14px; background-color: #fff;" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Phone Number *</label>
+                                    <input type="tel" name="phone" class="custom-input" placeholder="Your Phone Number" style="height: 42px; border: 1px solid #e0e0e0; border-radius: 4px; padding: 0 15px; width: 100%; font-size: 14px; background-color: #fff;" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Additional Services</label>
+                                    <div class="d-flex flex-wrap">
+                                        <div class="form-check me-4 mb-2">
+                                            <input class="form-check-input" type="checkbox" name="additional_services[]" value="GPS Navigation" id="gps">
+                                            <label class="form-check-label" for="gps">GPS Navigation</label>
+                                        </div>
+                                        <div class="form-check me-4 mb-2">
+                                            <input class="form-check-input" type="checkbox" name="additional_services[]" value="Child Seat" id="childSeat">
+                                            <label class="form-check-label" for="childSeat">Child Seat</label>
+                                        </div>
+                                        <div class="form-check me-4 mb-2">
+                                            <input class="form-check-input" type="checkbox" name="additional_services[]" value="Additional Driver" id="addDriver">
+                                            <label class="form-check-label" for="addDriver">Additional Driver</label>
+                                        </div>
+                                        <div class="form-check me-4 mb-2">
+                                            <input class="form-check-input" type="checkbox" name="additional_services[]" value="Premium Insurance" id="insurance">
+                                            <label class="form-check-label" for="insurance">Premium Insurance</label>
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <input class="form-check-input" type="checkbox" name="additional_services[]" value="Airport Pickup/Drop-off" id="airport">
+                                            <label class="form-check-label" for="airport">Airport Pickup/Drop-off</label>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 mb-30">
-                                    <div class="input1_wrapper">
-                                        <label class="mb-10">Return Date</label>
-                                        <div class="input1_inner">
-                                            <input type="text" class="form-control input datepicker" placeholder="Return Date" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-30">
-                                    <div class="input1_wrapper">
-                                        <label class="mb-10">Pick-up Location</label>
-                                        <div class="input1_inner">
-                                            <input type="text" class="form-control input" placeholder="Pick-up Location" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-30">
-                                    <div class="input1_wrapper">
-                                        <label class="mb-10">Return Location</label>
-                                        <div class="input1_inner">
-                                            <input type="text" class="form-control input" placeholder="Return Location" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-30">
-                                    <div class="select1_wrapper">
-                                        <label class="mb-10">Vehicle Type</label>
-                                        <div class="select1_inner">
-                                            <select class="select2 select" style="width: 100%">
-                                                <option value="0">Select Vehicle Type</option>
-                                                <option value="1">Economy Car</option>
-                                                <option value="2">Compact Car</option>
-                                                <option value="3">Midsize Car</option>
-                                                <option value="4">SUV</option>
-                                                <option value="5">Luxury Car</option>
-                                                <option value="6">Van/Minivan</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-30">
-                                    <div class="select1_wrapper">
-                                        <label class="mb-10">Driver Option</label>
-                                        <div class="select1_inner">
-                                            <select class="select2 select" style="width: 100%">
-                                                <option value="0">Select Driver Option</option>
-                                                <option value="1">Self-Drive</option>
-                                                <option value="2">With Driver</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-30">
-                                    <div class="input1_wrapper">
-                                        <label class="mb-10">Your Name</label>
-                                        <div class="input1_inner">
-                                            <input type="text" class="form-control input" placeholder="Your Full Name" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-30">
-                                    <div class="input1_wrapper">
-                                        <label class="mb-10">Your Email</label>
-                                        <div class="input1_inner">
-                                            <input type="email" class="form-control input" placeholder="Your Email Address" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-30">
-                                    <div class="input1_wrapper">
-                                        <label class="mb-10">Phone Number</label>
-                                        <div class="input1_inner">
-                                            <input type="text" class="form-control input" placeholder="Your Phone Number" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-30">
-                                    <div class="select1_wrapper">
-                                        <label class="mb-10">Additional Services</label>
-                                        <div class="select1_inner">
-                                            <select class="select2 select" style="width: 100%" multiple>
-                                                <option value="1">GPS Navigation</option>
-                                                <option value="2">Child Seat</option>
-                                                <option value="3">Additional Driver</option>
-                                                <option value="4">Premium Insurance</option>
-                                                <option value="5">Airport Pickup/Drop-off</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 mb-30">
-                                    <div class="input1_wrapper">
-                                        <label class="mb-10">Special Requests</label>
-                                        <div class="input1_inner">
-                                            <textarea class="form-control input" placeholder="Any special requests or requirements" rows="4"></textarea>
-                                        </div>
-                                    </div>
+                                <div class="col-md-12 mb-4">
+                                    <label class="form-label">Special Requests</label>
+                                    <textarea name="special_requests" class="custom-textarea" placeholder="Any special requests or requirements" rows="4" style="width: 100%; border: 1px solid #e0e0e0; border-radius: 4px; padding: 10px 15px; font-size: 14px; background-color: #fff; resize: vertical;"></textarea>
                                 </div>
                                 <div class="col-md-12 text-center">
-                                    <button type="submit" class="btn-form1-submit mt-15 px-5 py-3">Check Availability</button>
+                                    <button type="submit" class="btn-form1-submit mt-3 px-5 py-3" style="background-color: #30a8b4; color: white; border: none; border-radius: 4px; padding: 10px 30px; font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(48, 168, 180, 0.2);">
+                                        <i class="ti-email"></i> Send Request
+                                    </button>
                                 </div>
                             </div>
                         </form>
+                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        <script>
+                            document.getElementById('carRentalForm').addEventListener('submit', function(e) {
+                                e.preventDefault();
+                                
+                                const form = e.target;
+                                const formData = new FormData(form);
+                                const submitButton = form.querySelector('button[type="submit"]');
+                                const originalButtonText = submitButton.innerHTML;
+                                
+                                // Disable submit button
+                                submitButton.disabled = true;
+                                submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
+                                
+                                // Send form data
+                                fetch(form.action, {
+                                    method: 'POST',
+                                    body: formData
+                                })
+                                .then(response => {
+                                    if (!response.ok) {
+                                        throw new Error('Network response was not ok');
+                                    }
+                                    return response.json();
+                                })
+                                .then(data => {
+                                    // Show success message
+                                    Swal.fire({
+                                        title: 'Thank You!',
+                                        text: 'Your car rental request has been sent successfully. We will contact you shortly!',
+                                        icon: 'success',
+                                        confirmButtonColor: '#30a8b4',
+                                        confirmButtonText: 'OK'
+                                    });
+                                    
+                                    // Reset form
+                                    form.reset();
+                                })
+                                .catch(error => {
+                                    console.error('Error:', error);
+                                    Swal.fire({
+                                        title: 'Error!',
+                                        text: 'There was an error submitting your request. Please try again later or contact us directly.',
+                                        icon: 'error',
+                                        confirmButtonColor: '#30a8b4',
+                                        confirmButtonText: 'OK'
+                                    });
+                                })
+                                .finally(() => {
+                                    // Re-enable submit button
+                                    submitButton.disabled = false;
+                                    submitButton.innerHTML = originalButtonText;
+                                });
+                            });
+                            
+                            // Set minimum date for date inputs (today)
+                            const today = new Date().toISOString().split('T')[0];
+                            document.querySelectorAll('input[type="date"]').forEach(input => {
+                                input.min = today;
+                            });
+                        </script>
                     </div>
                 </div>
             </div>

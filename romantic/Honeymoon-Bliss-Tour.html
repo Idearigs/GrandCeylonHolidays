@@ -31,10 +31,34 @@
     <!-- Tour Page Slider -->
     <header class="header slider">
         <div class="owl-carousel owl-theme">
-            <!-- The opacity on the image is made with "data-overlay-dark="number". You can change it using the numbers 0-9. -->
-            <div class="text-center item bg-img" data-overlay-dark="2" data-background="../img/slider/honeymoon1.jpg"></div>
-            <div class="text-center item bg-img" data-overlay-dark="2" data-background="../img/slider/honeymoon2.jpg"></div>
-            <div class="text-center item bg-img" data-overlay-dark="2" data-background="../img/slider/honeymoon3.jpg"></div>
+            <div class="text-center item bg-img" data-overlay-dark="2" data-background="../img/cglimg/Romantic/candle-HBT.jpg">
+                <div class="v-middle caption">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1">
+                                <h4>Begin Your Forever</h4>
+                                <h1>Honeymoon <span>Bliss</span></h1>
+                                <p>Celebrate your love with a romantic escape to Sri Lanka's most enchanting destinations, where golden sunsets meet turquoise waters</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Second Slider -->
+            <div class="text-center item bg-img" data-overlay-dark="5" data-background="../img/cglimg/Romantic/beachRelax-HBT.jpg">
+                <div class="v-middle caption">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1">
+                                <h4>Romantic Moments</h4>
+                                <h1>Love in <span>Paradise</span></h1>
+                                <p>Indulge in intimate experiences, from private beach dinners to couple's spa treatments, creating memories that last a lifetime</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- arrow down -->
         <div class="arrow bounce text-center">
@@ -59,20 +83,15 @@
                     
                     <!-- Description Content -->
                     <h4>Begin Your Forever in Paradise</h4>
-                    <p>Celebrate the beginning of your married life with Grand Ceylon Holidays' exquisite Honeymoon Bliss Tour. This carefully crafted journey through Sri Lanka combines luxury, romance, and adventure to create the perfect backdrop for your first memories as a married couple.</p>
+                    <p>Begin your journey of love with our exclusive Honeymoon Bliss Tour, taking you to Sri Lanka's most romantic destinations. From the golden beaches of Bentota to the misty hills of Nuwara Eliya, experience the perfect blend of relaxation and adventure designed for newlyweds.</p>
+
+<p>Your romantic escape starts in the coastal paradise of Bentota, where you'll stay in a luxurious beachfront villa with a private plunge pool. Enjoy intimate candlelit dinners on the golden sands of Bentota Beach, with the sound of waves serenading your first days together. Take a private sunset cruise along the Madu River, floating past lush mangroves and spotting exotic wildlife as the sky turns shades of pink and orange.</p>
+
+<p>The highlight of your journey takes you to the misty highlands of Nuwara Eliya, known as 'Little England', where you'll stay in a colonial-era tea estate bungalow. Take a private tour of a tea plantation, enjoy a couples' tea tasting session, and relax with an authentic Ayurvedic couple's spa treatment using local herbs and spices.</p>
+
+<p>Your honeymoon concludes with a final romantic stay in Mirissa, where you can enjoy whale watching at sunrise, followed by a private beach dinner under a canopy of stars. Throughout your journey, our team will arrange special surprises, from flower petal decorations in your room to private dining experiences in the most breathtaking locations.</p>
                     
-                    <p>Your romantic adventure begins with a stay in a luxurious boutique hotel in Colombo, where you'll be welcomed with champagne and flowers. From there, journey to the cultural heart of Sri Lanka, where you'll explore ancient cities and sacred temples hand in hand. Climb the iconic Sigiriya Rock Fortress at sunset for breathtaking views and a private champagne toast atop this UNESCO World Heritage site.</p>
-                    
-                    <p>Continue to the misty hills of Nuwara Eliya, known as "Little England," where you'll stay in a colonial-era tea bungalow surrounded by verdant tea plantations. Enjoy a private tea tasting experience and a romantic dinner under the stars. The journey then takes you to the pristine beaches of the south coast, where you'll spend blissful days in a luxury beachfront villa with your own private plunge pool.</p>
-                    
-                    <p>Throughout your honeymoon, Grand Ceylon Holidays provides special romantic touches including candlelit dinners on the beach, couples' spa treatments using traditional Sri Lankan herbs and spices, private sunset cruises, and surprise gifts that celebrate your love. Our attentive yet discreet service ensures you have the perfect balance of curated experiences and private moments to create memories that will last a lifetime.</p>
-                    
-                    <div class="tour-page head-icon mt-4">
-                        <p><i class="ti-time"></i> 10 Days 9 Nights</p>
-                        <p><i class="ti-user"></i> Couples Only</p>
-                        <p><i class="ti-location-pin"></i> Sri Lanka</p>
-                        <p><i class="ti-face-smile"></i> 9.8 Exceptional</p>
-                    </div>
+
                 </div>
                 
                 <!-- Contact Form Section -->
@@ -81,15 +100,19 @@
                         <div class="right-sidebar">
                             <div class="right-sidebar item">
                                 <h3>Contact Us</h3>
-                                <form method="post" class="right-sidebar item-form contact__form" action="../quick-book.php">
-                                    <!-- form message -->
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="alert alert-success contact__msg" style="display: none" role="alert">Your message was sent successfully.</div>
-                                        </div>
-                                    </div>
+                                <form method="post" class="right-sidebar item-form contact__form" action="https://api.web3forms.com/submit" id="contactForm">
+                                    <!-- Web3Forms Access Key -->
+                                    <input type="hidden" name="access_key" value="371eb81f-603b-4b28-817b-74577c513da9">
+                                    <input type="hidden" name="from_name" value="GCL-CONTACT">
+                                    <input type="hidden" name="subject" value="Grand Ceylon Holidays-New Form Submission !!">
+                                    <input type="hidden" name="redirect" value="">
+                                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                                    
                                     <!-- form elements -->
                                     <div class="row">
+                                        <div class="col-md-12 form-group">
+                                            <input name="Package name" type="hidden" value="Asking about Honeymoon Bliss Tour">
+                                        </div>
                                         <div class="col-md-12 form-group">
                                             <input name="name" type="text" placeholder="Your Name *" required>
                                         </div>
@@ -97,7 +120,33 @@
                                             <input name="email" type="email" placeholder="Your Email *" required>
                                         </div>
                                         <div class="col-md-12 form-group">
-                                            <input name="phone" type="text" placeholder="Your Number *" required>
+                                            <div class="input-group">
+                                                <select class="form-control" style="max-width: 120px;" name="country_code" required>
+                                                    <option data-countryCode="US" value="+1">US +1</option>
+                                                    <option data-countryCode="LK" value="+94">LK +94</option>
+                                                    <option data-countryCode="IN" value="+91">IN +91</option>
+                                                    <option data-countryCode="GB" value="+44">UK +44</option>
+                                                    <option data-countryCode="CA" value="+1">CA +1</option>
+                                                    <option data-countryCode="AU" value="+61">AU +61</option>
+                                                    <option data-countryCode="DE" value="+49">DE +49</option>
+                                                    <option data-countryCode="FR" value="+33">FR +33</option>
+                                                    <option data-countryCode="IT" value="+39">IT +39</option>
+                                                    <option data-countryCode="JP" value="+81">JP +81</option>
+                                                    <option data-countryCode="CN" value="+86">CN +86</option>
+                                                    <option data-countryCode="AE" value="+971">AE +971</option>
+                                                    <option data-countryCode="SA" value="+966">SA +966</option>
+                                                    <option data-countryCode="RU" value="+7">RU +7</option>
+                                                    <option data-countryCode="SG" value="+65">SG +65</option>
+                                                    <option data-countryCode="MY" value="+60">MY +60</option>
+                                                    <option data-countryCode="TH" value="+66">TH +66</option>
+                                                    <option data-countryCode="ID" value="+62">ID +62</option>
+                                                    <option data-countryCode="PK" value="+92">PK +92</option>
+                                                    <option data-countryCode="BD" value="+880">BD +880</option>
+                                                    <option data-countryCode="NP" value="+977">NP +977</option>
+                                                    <option data-countryCode="MV" value="+960">MV +960</option>
+                                                </select>
+                                                <input name="phone" type="text" class="form-control" placeholder="Your Number *" required>
+                                            </div>
                                         </div>
                                         <div class="col-md-12 form-group">
                                             <select name="country" class="form-control" required>
@@ -120,7 +169,7 @@
                                             <textarea name="message" rows="4" placeholder="Your Message *" required></textarea>
                                         </div>
                                         <div class="col-md-12">
-                                            <button type="submit" class="butn-dark"><span>Send Message</span></button>
+                                            <button type="submit" class="butn-dark w-100" style="background: #30a8b4; transition: all 0.3s ease;"><span><i class="ti-email mr-2"></i> Send Message</span></button>
                                         </div>
                                     </div>
                                 </form>
@@ -135,7 +184,6 @@
     <!-- Footer -->
     <div id="footer-container"></div>
     
-    <!-- jQuery -->
     <script src="../js/jquery-3.6.3.min.js"></script>
     <script src="../js/jquery-migrate-3.0.0.min.js"></script>
     <script src="../js/modernizr-2.6.2.min.js"></script>
@@ -149,6 +197,8 @@
     <script src="../js/owl.carousel.min.js"></script>
     <script src="../js/jquery.stellar.min.js"></script>
     <script src="../js/jquery.magnific-popup.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/YouTubePopUp.js"></script>
     <script src="../js/select2.js"></script>
     <script src="../js/datepicker.js"></script>
@@ -159,6 +209,64 @@
     <!-- Load navbar and footer components -->
     <script src="../js/navbar-loader.js"></script>
     <script src="../js/footer-loader.js"></script>
-    <script src="../js/form-handler.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById("contactForm");
+            
+            if (form) {
+                form.addEventListener("submit", function(e) {
+                    e.preventDefault();
+                    
+                    // Show loading indicator
+                    Swal.fire({
+                        title: 'Sending...',
+                        text: 'Please wait while we process your request',
+                        allowOutsideClick: false,
+                        showConfirmButton: false,
+                        didOpen: () => {
+                            Swal.showLoading();
+                        }
+                    });
+                    
+                    const formData = new FormData(form);
+                    
+                    // Add required Web3Forms parameters
+                    formData.append('access_key', '371eb81f-603b-4b28-817b-74577c513da9');
+                    formData.append('from_name', 'GCL-CONTACT');
+                    formData.append('subject', 'Grand Ceylon Holidays-New Form Submission !!');
+                    
+                    fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Success
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Thank You!',
+                                text: 'Your message has been sent successfully. We will get back to you soon!',
+                                confirmButtonColor: '#30a8b4'
+                            });
+                            form.reset();
+                        } else {
+                            // Server error
+                            throw new Error(data.message || 'Form submission failed');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: error.message || 'Something went wrong. Please try again later.',
+                            confirmButtonColor: '#30a8b4'
+                        });
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
