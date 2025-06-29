@@ -31,10 +31,34 @@
     <!-- Tour Page Slider -->
     <header class="header slider">
         <div class="owl-carousel owl-theme">
-            <!-- The opacity on the image is made with "data-overlay-dark="number". You can change it using the numbers 0-9. -->
-            <div class="text-center item bg-img" data-overlay-dark="2" data-background="../img/slider/coastal1.jpg"></div>
-            <div class="text-center item bg-img" data-overlay-dark="2" data-background="../img/slider/coastal2.jpg"></div>
-            <div class="text-center item bg-img" data-overlay-dark="2" data-background="../img/slider/coastal3.jpg"></div>
+            <div class="text-center item bg-img" data-overlay-dark="3" data-background="../img/cglimg/Beach/southern-coastline.jpg">
+                <div class="v-middle caption">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1">
+                                <h4>Discover Sri Lanka's Stunning South Coast</h4>
+                                <h1>Southern <span>Coastal Drive</span></h1>
+                                <p>Journey along palm-fringed beaches and historic coastal towns on this breathtaking route</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Second Slider -->
+            <div class="text-center item bg-img" data-overlay-dark="4" data-background="../img/cglimg/Beach/galle-fort-view.jpg">
+                <div class="v-middle caption">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1">
+                                <h4>Where History Meets the Indian Ocean</h4>
+                                <h1>Coastal <span>Heritage</span></h1>
+                                <p>Explore colonial forts, fishing villages, and golden beaches on this unforgettable journey</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- arrow down -->
         <div class="arrow bounce text-center">
@@ -58,21 +82,18 @@
                     </div>
                     
                     <!-- Description Content -->
-                    <h4>Explore Sri Lanka's Stunning Southern Shoreline</h4>
-                    <p>Embark on a breathtaking journey along Sri Lanka's picturesque southern coast with Grand Ceylon Holidays' Southern Coastal Drive excursion. This carefully crafted day trip takes you along one of the most scenic coastal routes in Asia, where pristine beaches, historic sites, and charming fishing villages create an unforgettable tapestry of experiences.</p>
+                    <h4>Discover Sri Lanka's Southern Coastline</h4>
+                    <p>Experience the magic of Sri Lanka's southern coastline on this captivating journey with Grand Ceylon Holidays. This carefully designed tour takes you through a diverse landscape of golden beaches, hidden coves, and vibrant coastal communities, offering a perfect blend of relaxation and cultural discovery.</p>
                     
-                    <p>Your adventure begins as you travel in comfort along the coastal highway, with the sparkling Indian Ocean on one side and lush tropical landscapes on the other. Visit the historic Galle Fort, a UNESCO World Heritage site that showcases a unique blend of European and South Asian architectural styles. Wander through its charming streets lined with boutiques, cafes, and colonial buildings while your knowledgeable guide shares fascinating insights about its rich history.</p>
+                    <p>Begin your adventure in the charming town of Hikkaduwa, famous for its coral reefs and marine life. Here, you can explore colorful underwater worlds through a glass-bottom boat ride or simply relax on the golden sands. Witness local fishermen bringing in their daily catch and perhaps try your hand at traditional fishing techniques.</p>
                     
-                    <p>Continue your coastal journey to witness the iconic stilt fishermen of Sri Lanka, practicing their traditional fishing method that has become a symbol of the island's cultural heritage. Stop at pristine beaches where you can dip your toes in the warm waters or simply relax and soak in the tropical atmosphere. Visit a sea turtle conservation project to learn about efforts to protect these endangered marine creatures.</p>
+                    <p>Continue to the historic town of Galle, where Portuguese and Dutch colonial influences blend with local traditions. Stroll along the ancient ramparts as the ocean breeze carries the scent of salt and spices. Discover hidden cafes serving fresh seafood and local delicacies, and browse through boutique shops offering handmade crafts and souvenirs.</p>
                     
-                    <p>This full-day excursion includes a delicious seafood lunch at a beachside restaurant where you can savor fresh local cuisine while enjoying panoramic ocean views. Grand Ceylon Holidays ensures a comfortable and enriching experience with an air-conditioned vehicle and an expert guide who will enhance your journey with cultural and historical insights, making this coastal drive not just a visual feast but an educational adventure as well.</p>
+                    <p>Further along the coast, visit the peaceful fishing village of Weligama, known for its crescent-shaped bay and stilt fishermen. Stop at a local mask-making workshop to see artisans creating traditional Sri Lankan masks using centuries-old techniques. The journey continues to secluded beaches where you can swim in crystal-clear waters or enjoy a refreshing coconut under the shade of palm trees.</p>
                     
-                    <div class="tour-page head-icon mt-4">
-                        <p><i class="ti-time"></i> Full-day Excursion</p>
-                        <p><i class="ti-user"></i> Group: 2 - 6 People</p>
-                        <p><i class="ti-location-pin"></i> Sri Lanka</p>
-                        <p><i class="ti-face-smile"></i> 9.8 Superb</p>
-                    </div>
+                    <p>This full-day experience includes a sumptuous seafood lunch at a beachfront restaurant, where the day's catch is transformed into mouthwatering local dishes. Travel in comfort with our air-conditioned vehicles and knowledgeable guides who will share fascinating stories about the region's history, culture, and natural wonders.</p>
+                    
+               
                 </div>
                 
                 <!-- Contact Form Section -->
@@ -81,23 +102,51 @@
                         <div class="right-sidebar">
                             <div class="right-sidebar item">
                                 <h3>Contact Us</h3>
-                                <form method="post" class="right-sidebar item-form contact__form" action="../quick-book.php">
-                                    <!-- form message -->
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="alert alert-success contact__msg" style="display: none" role="alert">Your message was sent successfully.</div>
-                                        </div>
-                                    </div>
+                                <form method="post" class="right-sidebar item-form contact__form" action="https://api.web3forms.com/submit" id="contactForm">
+                                    <!-- Web3Forms Access Key -->
+                                    <input type="hidden" name="access_key" value="371eb81f-603b-4b28-817b-74577c513da9">
+                                    <input type="hidden" name="from_name" value="GCL-CONTACT">
+                                    <input type="hidden" name="subject" value="Grand Ceylon Holidays-New Form Submission !!">
+                                    <input type="hidden" name="redirect" value="">
+                                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                                    
                                     <!-- form elements -->
                                     <div class="row">
+                                        <input type="hidden" name="packageName" value="Southern Coastal Drive">
                                         <div class="col-md-12 form-group">
-                                            <input name="name" type="text" placeholder="Your Name *" required>
+                                            <input name="name" type="text" placeholder="Name *" required>
                                         </div>
                                         <div class="col-md-12 form-group">
-                                            <input name="email" type="email" placeholder="Your Email *" required>
+                                            <input name="email" type="email" placeholder="Email *" required>
                                         </div>
                                         <div class="col-md-12 form-group">
-                                            <input name="phone" type="text" placeholder="Your Number *" required>
+                                            <div class="input-group">
+                                                <select class="form-control" style="max-width: 120px;" name="country_code" required>
+                                                    <option data-countryCode="US" value="+1">US +1</option>
+                                                    <option data-countryCode="LK" value="+94">LK +94</option>
+                                                    <option data-countryCode="IN" value="+91">IN +91</option>
+                                                    <option data-countryCode="GB" value="+44">UK +44</option>
+                                                    <option data-countryCode="CA" value="+1">CA +1</option>
+                                                    <option data-countryCode="AU" value="+61">AU +61</option>
+                                                    <option data-countryCode="DE" value="+49">DE +49</option>
+                                                    <option data-countryCode="FR" value="+33">FR +33</option>
+                                                    <option data-countryCode="IT" value="+39">IT +39</option>
+                                                    <option data-countryCode="JP" value="+81">JP +81</option>
+                                                    <option data-countryCode="CN" value="+86">CN +86</option>
+                                                    <option data-countryCode="AE" value="+971">AE +971</option>
+                                                    <option data-countryCode="SA" value="+966">SA +966</option>
+                                                    <option data-countryCode="RU" value="+7">RU +7</option>
+                                                    <option data-countryCode="SG" value="+65">SG +65</option>
+                                                    <option data-countryCode="MY" value="+60">MY +60</option>
+                                                    <option data-countryCode="TH" value="+66">TH +66</option>
+                                                    <option data-countryCode="ID" value="+62">ID +62</option>
+                                                    <option data-countryCode="PK" value="+92">PK +92</option>
+                                                    <option data-countryCode="BD" value="+880">BD +880</option>
+                                                    <option data-countryCode="NP" value="+977">NP +977</option>
+                                                    <option data-countryCode="MV" value="+960">MV +960</option>
+                                                </select>
+                                                <input name="phone" type="text" class="form-control" placeholder="Phone Number *" required>
+                                            </div>
                                         </div>
                                         <div class="col-md-12 form-group">
                                             <select name="country" class="form-control" required>
@@ -120,7 +169,7 @@
                                             <textarea name="message" rows="4" placeholder="Your Message *" required></textarea>
                                         </div>
                                         <div class="col-md-12">
-                                            <button type="submit" class="butn-dark"><span>Send Message</span></button>
+                                            <button type="submit" class="butn-dark w-100" style="background: #30a8b4; transition: all 0.3s ease;"><span><i class="ti-email mr-2"></i> Send Message</span></button>
                                         </div>
                                     </div>
                                 </form>
@@ -149,6 +198,8 @@
     <script src="../js/owl.carousel.min.js"></script>
     <script src="../js/jquery.stellar.min.js"></script>
     <script src="../js/jquery.magnific-popup.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/YouTubePopUp.js"></script>
     <script src="../js/select2.js"></script>
     <script src="../js/datepicker.js"></script>
@@ -159,6 +210,83 @@
     <!-- Load navbar and footer components -->
     <script src="../js/navbar-loader.js"></script>
     <script src="../js/footer-loader.js"></script>
-    <script src="../js/form-handler.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById("contactForm");
+            let isSubmitting = false; // Flag to prevent duplicate submissions
+            
+            if (form) {
+                form.addEventListener("submit", function(e) {
+                    e.preventDefault();
+                    
+                    // Prevent duplicate submissions
+                    if (isSubmitting) {
+                        return false;
+                    }
+                    
+                    // Set submission flag
+                    isSubmitting = true;
+                    
+                    // Disable submit button
+                    const submitBtn = form.querySelector('button[type="submit"]');
+                    const originalBtnText = submitBtn.innerHTML;
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<i class="ti-reload mr-2"></i> Sending...';
+                    
+                    // Show loading indicator
+                    Swal.fire({
+                        title: 'Sending...',
+                        text: 'Please wait while we process your request',
+                        allowOutsideClick: false,
+                        showConfirmButton: false,
+                        didOpen: () => {
+                            Swal.showLoading();
+                        }
+                    });
+                    
+                    const formData = new FormData(form);
+                    
+                    // DO NOT add parameters that are already in the form as hidden inputs
+                    // This prevents duplicate parameters
+                    
+                    fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Success
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Thank You!',
+                                text: 'Your message has been sent successfully. We will get back to you soon!',
+                                confirmButtonColor: '#30a8b4'
+                            });
+                            form.reset();
+                        } else {
+                            // Server error
+                            throw new Error(data.message || 'Form submission failed');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: error.message || 'Something went wrong. Please try again later.',
+                            confirmButtonColor: '#30a8b4'
+                        });
+                    })
+                    .finally(() => {
+                        // Reset submission flag and button state
+                        isSubmitting = false;
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnText;
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>

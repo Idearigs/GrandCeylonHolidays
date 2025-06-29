@@ -54,10 +54,34 @@
     <!-- Tour Page Slider -->
     <header class="header slider">
         <div class="owl-carousel owl-theme">
-            <!-- The opacity on the image is made with "data-overlay-dark="number". You can change it using the numbers 0-9. -->
-            <div class="text-center item bg-img" data-overlay-dark="2" data-background="../img/slider/horton1.jpg"></div>
-            <div class="text-center item bg-img" data-overlay-dark="2" data-background="../img/slider/horton2.jpg"></div>
-            <div class="text-center item bg-img" data-overlay-dark="2" data-background="../img/slider/horton3.jpg"></div>
+            <div class="text-center item bg-img" data-overlay-dark="3" data-background="../img/cglimg/Wildlife-adventure/Hortain.jpg">
+                <div class="v-middle caption">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1">
+                                <h4>Misty Highland Paradise</h4>
+                                <h1>Horton Plains <span>National Park</span></h1>
+                                <p>Discover the breathtaking beauty of Sri Lanka's highest plateau, where misty grasslands meet dramatic cliffs and rare montane forests create a unique highland ecosystem</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Second Slider -->
+            <div class="text-center item bg-img" data-overlay-dark="4" data-background="../img/cglimg/Wildlife-adventure/Hortain2.jpg">
+                <div class="v-middle caption">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1">
+                                <h4>World's End</h4>
+                                <h1>Dramatic <span>Viewpoints</span></h1>
+                                <p>Stand at the edge of the world's most spectacular escarpment, where the land drops 880 meters to reveal panoramic views stretching all the way to the distant coast</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- arrow down -->
         <div class="arrow bounce text-center">
@@ -73,7 +97,7 @@
                     <div class="section-subtitle">Wildlife & Adventure</div>
                     <div class="section-title mb-0">Horton Plains <span>National Park</span></div>
                     <div class="rating mb-30"> <i class="star active"></i> <i class="star active"></i> <i class="star active"></i> <i class="star active"></i> <i class="star active"></i>
-                        <div class="reviews-count color-2">(44 Reviews)</div>
+                   
                     </div>
                     
                     <h6>Cloud Forest Wonderland</h6>
@@ -81,7 +105,7 @@
                     
                     <p class="mb-30">Grand Ceylon Holidays offers guided treks through Horton Plains' most iconic attractions, including the famous World's End, a stunning escarpment with a sheer drop of 880 meters offering breathtaking panoramic views of the tea plantations, villages, and mountains below. Another highlight is Baker's Falls, a picturesque waterfall cascading through pristine forest. The park is home to numerous endemic species, including the endangered purple-faced langur, sambhur deer, and if you're extremely lucky, the elusive Sri Lankan leopard. Bird enthusiasts will delight in spotting endemic species like the Sri Lanka whistling thrush and Sri Lanka bush warbler. Our knowledgeable guides will help you identify the park's unique flora and fauna while sharing insights about this fragile ecosystem's conservation challenges. For the best experience, we recommend early morning visits when the mist clears to reveal spectacular views before clouds roll in by midday.</p>
                     
-                    <div class="row gallery-items">
+                    <!-- <div class="row gallery-items">
                         <div class="col-md-4 gallery-item">
                             <a href="../img/destination/horton1.jpg" title="World's End" class="img-zoom">
                                 <div class="gallery-box">
@@ -103,7 +127,7 @@
                                 </div>
                             </a>
                         </div>
-                    </div>
+                    </div> -->
                     
                     <h6 class="mt-4">Key Highlights</h6>
                     <ul class="list-unstyled page-list mb-30">
@@ -146,28 +170,76 @@
                         <div class="right-sidebar">
                             <div class="right-sidebar item contact-form">
                                 <h4>Inquire About This Tour</h4>
-                                <form method="post" class="right-sidebar item-form" action="../quick-book.php">
+                                <form method="post" class="right-sidebar item-form contact__form" action="https://api.web3forms.com/submit" id="contactForm">
+                                    <!-- Web3Forms Access Key -->
+                                    <input type="hidden" name="access_key" value="371eb81f-603b-4b28-817b-74577c513da9">
+                                    <input type="hidden" name="from_name" value="GCL-CONTACT">
+                                    <input type="hidden" name="subject" value="Grand Ceylon Holidays-New Form Submission !!">
+                                    <input type="hidden" name="redirect" value="">
+                                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                                    
+                                    <!-- form elements -->
                                     <div class="row">
                                         <div class="col-md-12 form-group">
-                                            <input name="name" type="text" placeholder="Full Name" required>
+                                            <input name="Package name" type="hidden" value="Asking about Hortain Plains Tour">
                                         </div>
                                         <div class="col-md-12 form-group">
-                                            <input name="email" type="email" placeholder="Email Address" required>
+                                            <input name="name" type="text" placeholder="Your Name *" required>
                                         </div>
                                         <div class="col-md-12 form-group">
-                                            <input name="phone" type="text" placeholder="Phone Number" required>
-                                        </div>
-                                        <div class="col-md-12 form-group input1_inner">
-                                            <input type="text" name="travel_date" class="form-control input datepicker" placeholder="Travel Date" required>
+                                            <input name="email" type="email" placeholder="Your Email *" required>
                                         </div>
                                         <div class="col-md-12 form-group">
-                                            <input name="people" type="number" placeholder="Number of People" required>
+                                            <div class="input-group">
+                                                <select class="form-control" style="max-width: 120px;" name="country_code" required>
+                                                    <option data-countryCode="US" value="+1">US +1</option>
+                                                    <option data-countryCode="LK" value="+94">LK +94</option>
+                                                    <option data-countryCode="IN" value="+91">IN +91</option>
+                                                    <option data-countryCode="GB" value="+44">UK +44</option>
+                                                    <option data-countryCode="CA" value="+1">CA +1</option>
+                                                    <option data-countryCode="AU" value="+61">AU +61</option>
+                                                    <option data-countryCode="DE" value="+49">DE +49</option>
+                                                    <option data-countryCode="FR" value="+33">FR +33</option>
+                                                    <option data-countryCode="IT" value="+39">IT +39</option>
+                                                    <option data-countryCode="JP" value="+81">JP +81</option>
+                                                    <option data-countryCode="CN" value="+86">CN +86</option>
+                                                    <option data-countryCode="AE" value="+971">AE +971</option>
+                                                    <option data-countryCode="SA" value="+966">SA +966</option>
+                                                    <option data-countryCode="RU" value="+7">RU +7</option>
+                                                    <option data-countryCode="SG" value="+65">SG +65</option>
+                                                    <option data-countryCode="MY" value="+60">MY +60</option>
+                                                    <option data-countryCode="TH" value="+66">TH +66</option>
+                                                    <option data-countryCode="ID" value="+62">ID +62</option>
+                                                    <option data-countryCode="PK" value="+92">PK +92</option>
+                                                    <option data-countryCode="BD" value="+880">BD +880</option>
+                                                    <option data-countryCode="NP" value="+977">NP +977</option>
+                                                    <option data-countryCode="MV" value="+960">MV +960</option>
+                                                </select>
+                                                <input name="phone" type="text" class="form-control" placeholder="Your Number *" required>
+                                            </div>
                                         </div>
                                         <div class="col-md-12 form-group">
-                                            <textarea name="message" cols="30" rows="4" placeholder="Your Message"></textarea>
+                                            <select name="country" class="form-control" required>
+                                                <option value="">Select Your Country</option>
+                                                <option value="Afghanistan">Afghanistan</option>
+                                                <option value="Australia">Australia</option>
+                                                <option value="Canada">Canada</option>
+                                                <option value="China">China</option>
+                                                <option value="France">France</option>
+                                                <option value="Germany">Germany</option>
+                                                <option value="India">India</option>
+                                                <option value="Japan">Japan</option>
+                                                <option value="Russia">Russia</option>
+                                                <option value="UK">United Kingdom</option>
+                                                <option value="USA">United States</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-12 form-group">
+                                            <textarea name="message" rows="4" placeholder="Your Message *" required></textarea>
                                         </div>
                                         <div class="col-md-12">
-                                            <button type="submit" class="butn-dark"><span>Send Request</span></button>
+                                            <button type="submit" class="butn-dark w-100" style="background: #30a8b4; transition: all 0.3s ease;"><span><i class="ti-email mr-2"></i> Send Message</span></button>
                                         </div>
                                     </div>
                                 </form>
@@ -182,28 +254,109 @@
     <!-- Footer -->
     <div id="footer-container"></div>
     
-    <!-- jQuery -->
-    <script src="../js/jquery-3.6.3.min.js"></script>
-    <script src="../js/jquery-migrate-3.0.0.min.js"></script>
-    <script src="../js/modernizr-2.6.2.min.js"></script>
-    <script src="../js/imagesloaded.pkgd.min.js"></script>
-    <script src="../js/jquery.isotope.v3.0.2.js"></script>
-    <script src="../js/pace.js"></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/scrollIt.min.js"></script>
-    <script src="../js/jquery.waypoints.min.js"></script>
-    <script src="../js/owl.carousel.min.js"></script>
-    <script src="../js/jquery.stellar.min.js"></script>
-    <script src="../js/jquery.magnific-popup.js"></script>
-    <script src="../js/YouTubePopUp.js"></script>
-    <script src="../js/select2.js"></script>
-    <script src="../js/datepicker.js"></script>
-    <script src="../js/jquery.counterup.min.js"></script>
-    <script src="../js/smooth-scroll.min.js"></script>
-    <script src="../js/custom.js"></script>
-    <script src="../js/navbar-loader.js"></script>
-    <script src="../js/footer-loader.js"></script>
-    <script src="../js/form-handler.js"></script>
+       <!-- jQuery -->
+       <script src="../js/jquery-3.6.3.min.js"></script>
+       <script src="../js/jquery-migrate-3.0.0.min.js"></script>
+       <script src="../js/modernizr-2.6.2.min.js"></script>
+       <script src="../js/imagesloaded.pkgd.min.js"></script>
+       <script src="../js/jquery.isotope.v3.0.2.js"></script>
+       <script src="../js/pace.js"></script>
+       <script src="../js/popper.min.js"></script>
+       <script src="../js/bootstrap.min.js"></script>
+       <script src="../js/scrollIt.min.js"></script>
+       <script src="../js/jquery.waypoints.min.js"></script>
+       <script src="../js/owl.carousel.min.js"></script>
+       <script src="../js/jquery.stellar.min.js"></script>
+       <script src="../js/jquery.magnific-popup.js"></script>
+       <!-- SweetAlert2 -->
+       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+       <script src="../js/YouTubePopUp.js"></script>
+       <script src="../js/select2.js"></script>
+       <script src="../js/datepicker.js"></script>
+       <script src="../js/jquery.counterup.min.js"></script>
+       <script src="../js/smooth-scroll.min.js"></script>
+       <script src="../js/custom.js"></script>
+       
+       <!-- Load navbar and footer components -->
+       <script src="../js/navbar-loader.js"></script>
+       <script src="../js/footer-loader.js"></script>
+       <script>
+           document.addEventListener('DOMContentLoaded', function() {
+               const form = document.getElementById("contactForm");
+               let isSubmitting = false; // Flag to prevent duplicate submissions
+               
+               if (form) {
+                   form.addEventListener("submit", function(e) {
+                       e.preventDefault();
+                       
+                       // Prevent duplicate submissions
+                       if (isSubmitting) {
+                           return false;
+                       }
+                       
+                       // Set submission flag
+                       isSubmitting = true;
+                       
+                       // Disable submit button
+                       const submitBtn = form.querySelector('button[type="submit"]');
+                       const originalBtnText = submitBtn.innerHTML;
+                       submitBtn.disabled = true;
+                       submitBtn.innerHTML = '<i class="ti-reload mr-2"></i> Sending...';
+                       
+                       // Show loading indicator
+                       Swal.fire({
+                           title: 'Sending...',
+                           text: 'Please wait while we process your request',
+                           allowOutsideClick: false,
+                           showConfirmButton: false,
+                           didOpen: () => {
+                               Swal.showLoading();
+                           }
+                       });
+                       
+                       const formData = new FormData(form);
+                       
+                       // DO NOT add parameters that are already in the form as hidden inputs
+                       // This prevents duplicate parameters
+                       
+                       fetch('https://api.web3forms.com/submit', {
+                           method: 'POST',
+                           body: formData
+                       })
+                       .then(response => response.json())
+                       .then(data => {
+                           if (data.success) {
+                               // Success
+                               Swal.fire({
+                                   icon: 'success',
+                                   title: 'Thank You!',
+                                   text: 'Your message has been sent successfully. We will get back to you soon!',
+                                   confirmButtonColor: '#30a8b4'
+                               });
+                               form.reset();
+                           } else {
+                               // Server error
+                               throw new Error(data.message || 'Form submission failed');
+                           }
+                       })
+                       .catch(error => {
+                           console.error('Error:', error);
+                           Swal.fire({
+                               icon: 'error',
+                               title: 'Oops...',
+                               text: error.message || 'Something went wrong. Please try again later.',
+                               confirmButtonColor: '#30a8b4'
+                           });
+                       })
+                       .finally(() => {
+                           // Reset submission flag and button state
+                           isSubmitting = false;
+                           submitBtn.disabled = false;
+                           submitBtn.innerHTML = originalBtnText;
+                       });
+                   });
+               }
+           });
+       </script>
 </body>
 </html>

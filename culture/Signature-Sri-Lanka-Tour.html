@@ -239,10 +239,25 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById("contactForm");
+            let isSubmitting = false; // Flag to prevent duplicate submissions
             
             if (form) {
                 form.addEventListener("submit", function(e) {
                     e.preventDefault();
+                    
+                    // Prevent duplicate submissions
+                    if (isSubmitting) {
+                        return false;
+                    }
+                    
+                    // Set submission flag
+                    isSubmitting = true;
+                    
+                    // Disable submit button
+                    const submitBtn = form.querySelector('button[type="submit"]');
+                    const originalBtnText = submitBtn.innerHTML;
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<i class="ti-reload mr-2"></i> Sending...';
                     
                     // Show loading indicator
                     Swal.fire({
@@ -257,10 +272,8 @@
                     
                     const formData = new FormData(form);
                     
-                    // Add required Web3Forms parameters
-                    formData.append('access_key', '371eb81f-603b-4b28-817b-74577c513da9');
-                    formData.append('from_name', 'GCL-CONTACT');
-                    formData.append('subject', 'Grand Ceylon Holidays-New Form Submission !!');
+                    // DO NOT add parameters that are already in the form as hidden inputs
+                    // This prevents duplicate parameters
                     
                     fetch('https://api.web3forms.com/submit', {
                         method: 'POST',
@@ -290,6 +303,12 @@
                             text: error.message || 'Something went wrong. Please try again later.',
                             confirmButtonColor: '#30a8b4'
                         });
+                    })
+                    .finally(() => {
+                        // Reset submission flag and button state
+                        isSubmitting = false;
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnText;
                     });
                 });
             }

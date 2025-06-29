@@ -31,10 +31,34 @@
     <!-- Tour Page Slider -->
     <header class="header slider">
         <div class="owl-carousel owl-theme">
-            <!-- The opacity on the image is made with "data-overlay-dark="number". You can change it using the numbers 0-9. -->
-            <div class="text-center item bg-img" data-overlay-dark="2" data-background="../img/slider/cycling1.jpg"></div>
-            <div class="text-center item bg-img" data-overlay-dark="2" data-background="../img/slider/cycling2.jpg"></div>
-            <div class="text-center item bg-img" data-overlay-dark="2" data-background="../img/slider/cycling3.jpg"></div>
+            <div class="text-center item bg-img" data-overlay-dark="4" data-background="../img/cglimg/Cycling/tea-plantation-cycling.jpg">
+                <div class="v-middle caption">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1">
+                                <h4>Cycle Through Picturesque Landscapes</h4>
+                                <h1>Pedal Through <span>Paradise</span></h1>
+                                <p>Discover Sri Lanka's breathtaking scenery at your own pace on our guided cycling adventures</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Second Slider -->
+            <div class="text-center item bg-img" data-overlay-dark="5" data-background="../img/cglimg/Cycling/coastal-bike-ride.jpg">
+                <div class="v-middle caption">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1">
+                                <h4>Explore Hidden Trails & Coastal Routes</h4>
+                                <h1>Bike & <span>Explore</span></h1>
+                                <p>Ride through tea plantations, coastal paths, and rural villages on our carefully curated cycling routes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- arrow down -->
         <div class="arrow bounce text-center">
@@ -59,20 +83,36 @@
                     
                     <!-- Description Content -->
                     <h4>Discover Sri Lanka's Hidden Gems on Two Wheels</h4>
-                    <p>Experience the authentic beauty of Sri Lanka at a perfect pace with Grand Ceylon Holidays' Pedal Through Paradise cycling tour. This thoughtfully designed adventure allows you to immerse yourself in the island's diverse landscapes, vibrant culture, and warm hospitality while enjoying the freedom and connection that only cycling can provide.</p>
+                    <h4>Discover Sri Lanka on Two Wheels</h4>
+                    <p>Experience the perfect blend of adventure and cultural immersion with our Pedal Through Paradise cycling tour. This carefully crafted journey takes you through some of Sri Lanka's most scenic routes, combining physical activity with authentic local experiences.</p>
                     
-                    <p>Your cycling journey begins in the cultural heartland, where you'll pedal through ancient kingdoms and rural villages rarely seen by conventional tourists. Cycle along quiet back roads past emerald rice paddies, colorful temples, and smiling locals going about their daily lives. Each day offers a new perspective as you transition through changing landscapes—from the central highlands with their misty mountains and tea plantations to the dry zone's ancient ruins and wildlife-rich national parks.</p>
+                    <h5>Featured Cycling Routes:</h5>
                     
-                    <p>This tour balances cycling adventures with cultural experiences. Stop to explore UNESCO World Heritage sites like Sigiriya Rock Fortress and the Sacred City of Anuradhapura, participate in a traditional cooking class in a village home, and enjoy a refreshing dip in natural swimming holes after a rewarding ride. The cycling routes are carefully selected to showcase Sri Lanka's diversity while being accessible to riders with moderate fitness levels.</p>
+                    <p><strong>1. Kandy to Nuwara Eliya</strong><br>
+                    Cycle through the heart of Sri Lanka's hill country, passing terraced tea plantations and misty mountains. Stop at a working tea factory to learn about Ceylon tea production and enjoy a fresh brew with panoramic views.</p>
                     
-                    <p>Grand Ceylon Holidays ensures your comfort throughout the journey with quality bikes, a support vehicle, expert local guides, and carefully selected accommodations that reflect the character of each region. Savor delicious Sri Lankan cuisine that fuels your adventures and enjoy meaningful interactions with local communities along the way. Whether you're an experienced cyclist or casual rider, this Pedal Through Paradise tour offers an intimate, active, and unforgettable way to experience the true essence of Sri Lanka.</p>
+                    <p><strong>2. Ancient Cities Circuit</strong><br>
+                    Pedal through history as you explore the Cultural Triangle. Visit the ancient cities of Anuradhapura and Polonnaruwa, cycling past ancient stupas and sacred temples. The flat terrain makes this route perfect for all skill levels.</p>
                     
-                    <div class="tour-page head-icon mt-4">
-                        <p><i class="ti-time"></i> 8 Days 7 Nights</p>
-                        <p><i class="ti-user"></i> Small Groups (Max 10)</p>
-                        <p><i class="ti-location-pin"></i> Sri Lanka</p>
-                        <p><i class="ti-face-smile"></i> 9.8 Superb</p>
-                    </div>
+                    <p><strong>3. Southern Coastal Ride</strong><br>
+                    Follow the scenic southern coastline from Galle to Mirissa, with stops at golden beaches and fishing villages. Enjoy fresh seafood lunches and the chance to spot blue whales during migration season (December-April).</p>
+                    
+                    <p><strong>4. Knuckles Mountain Range</strong><br>
+                    For more experienced cyclists, tackle the challenging trails through the Knuckles Forest Reserve. The reward? Breathtaking views and encounters with rare wildlife in this UNESCO World Heritage site.</p>
+                    
+                    <h5>What's Included:</h5>
+                    <ul>
+                        <li>High-quality mountain bikes with safety gear</li>
+                        <li>Expert cycling guides with local knowledge</li>
+                        <li>Support vehicle with refreshments and first aid</li>
+                        <li>Comfortable accommodations with bike storage</li>
+                        <li>All meals featuring local cuisine</li>
+                        <li>Entrance fees to attractions and activities</li>
+                    </ul>
+                    
+                    <p>Our tours are designed for riders of all levels, with route options ranging from 20-60km per day. Each evening, relax in handpicked accommodations that reflect the local character, from colonial guesthouses to eco-lodges.</p>
+                    
+                    
                 </div>
                 
                 <!-- Contact Form Section -->
@@ -81,23 +121,51 @@
                         <div class="right-sidebar">
                             <div class="right-sidebar item">
                                 <h3>Contact Us</h3>
-                                <form method="post" class="right-sidebar item-form contact__form" action="../quick-book.php">
-                                    <!-- form message -->
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="alert alert-success contact__msg" style="display: none" role="alert">Your message was sent successfully.</div>
-                                        </div>
-                                    </div>
+                                <form method="post" class="right-sidebar item-form contact__form" action="https://api.web3forms.com/submit" id="contactForm">
+                                    <!-- Web3Forms Access Key -->
+                                    <input type="hidden" name="access_key" value="371eb81f-603b-4b28-817b-74577c513da9">
+                                    <input type="hidden" name="from_name" value="GCL-CONTACT">
+                                    <input type="hidden" name="subject" value="Grand Ceylon Holidays-New Form Submission !!">
+                                    <input type="hidden" name="redirect" value="">
+                                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                                    
                                     <!-- form elements -->
                                     <div class="row">
+                                        <input type="hidden" name="packageName" value="Pedal Through Paradise Tour">
                                         <div class="col-md-12 form-group">
-                                            <input name="name" type="text" placeholder="Your Name *" required>
+                                            <input name="name" type="text" placeholder="Name *" required>
                                         </div>
                                         <div class="col-md-12 form-group">
-                                            <input name="email" type="email" placeholder="Your Email *" required>
+                                            <input name="email" type="email" placeholder="Email *" required>
                                         </div>
                                         <div class="col-md-12 form-group">
-                                            <input name="phone" type="text" placeholder="Your Number *" required>
+                                            <div class="input-group">
+                                                <select class="form-control" style="max-width: 120px;" name="country_code" required>
+                                                    <option data-countryCode="US" value="+1">US +1</option>
+                                                    <option data-countryCode="LK" value="+94">LK +94</option>
+                                                    <option data-countryCode="IN" value="+91">IN +91</option>
+                                                    <option data-countryCode="GB" value="+44">UK +44</option>
+                                                    <option data-countryCode="CA" value="+1">CA +1</option>
+                                                    <option data-countryCode="AU" value="+61">AU +61</option>
+                                                    <option data-countryCode="DE" value="+49">DE +49</option>
+                                                    <option data-countryCode="FR" value="+33">FR +33</option>
+                                                    <option data-countryCode="IT" value="+39">IT +39</option>
+                                                    <option data-countryCode="JP" value="+81">JP +81</option>
+                                                    <option data-countryCode="CN" value="+86">CN +86</option>
+                                                    <option data-countryCode="AE" value="+971">AE +971</option>
+                                                    <option data-countryCode="SA" value="+966">SA +966</option>
+                                                    <option data-countryCode="RU" value="+7">RU +7</option>
+                                                    <option data-countryCode="SG" value="+65">SG +65</option>
+                                                    <option data-countryCode="MY" value="+60">MY +60</option>
+                                                    <option data-countryCode="TH" value="+66">TH +66</option>
+                                                    <option data-countryCode="ID" value="+62">ID +62</option>
+                                                    <option data-countryCode="PK" value="+92">PK +92</option>
+                                                    <option data-countryCode="BD" value="+880">BD +880</option>
+                                                    <option data-countryCode="NP" value="+977">NP +977</option>
+                                                    <option data-countryCode="MV" value="+960">MV +960</option>
+                                                </select>
+                                                <input name="phone" type="text" class="form-control" placeholder="Phone Number *" required>
+                                            </div>
                                         </div>
                                         <div class="col-md-12 form-group">
                                             <select name="country" class="form-control" required>
@@ -120,7 +188,7 @@
                                             <textarea name="message" rows="4" placeholder="Your Message *" required></textarea>
                                         </div>
                                         <div class="col-md-12">
-                                            <button type="submit" class="butn-dark"><span>Send Message</span></button>
+                                            <button type="submit" class="butn-dark w-100" style="background: #30a8b4; transition: all 0.3s ease;"><span><i class="ti-email mr-2"></i> Send Message</span></button>
                                         </div>
                                     </div>
                                 </form>
@@ -149,6 +217,8 @@
     <script src="../js/owl.carousel.min.js"></script>
     <script src="../js/jquery.stellar.min.js"></script>
     <script src="../js/jquery.magnific-popup.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/YouTubePopUp.js"></script>
     <script src="../js/select2.js"></script>
     <script src="../js/datepicker.js"></script>
@@ -159,6 +229,83 @@
     <!-- Load navbar and footer components -->
     <script src="../js/navbar-loader.js"></script>
     <script src="../js/footer-loader.js"></script>
-    <script src="../js/form-handler.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById("contactForm");
+            let isSubmitting = false; // Flag to prevent duplicate submissions
+            
+            if (form) {
+                form.addEventListener("submit", function(e) {
+                    e.preventDefault();
+                    
+                    // Prevent duplicate submissions
+                    if (isSubmitting) {
+                        return false;
+                    }
+                    
+                    // Set submission flag
+                    isSubmitting = true;
+                    
+                    // Disable submit button
+                    const submitBtn = form.querySelector('button[type="submit"]');
+                    const originalBtnText = submitBtn.innerHTML;
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<i class="ti-reload mr-2"></i> Sending...';
+                    
+                    // Show loading indicator
+                    Swal.fire({
+                        title: 'Sending...',
+                        text: 'Please wait while we process your request',
+                        allowOutsideClick: false,
+                        showConfirmButton: false,
+                        didOpen: () => {
+                            Swal.showLoading();
+                        }
+                    });
+                    
+                    const formData = new FormData(form);
+                    
+                    // DO NOT add parameters that are already in the form as hidden inputs
+                    // This prevents duplicate parameters
+                    
+                    fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Success
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Thank You!',
+                                text: 'Your message has been sent successfully. We will get back to you soon!',
+                                confirmButtonColor: '#30a8b4'
+                            });
+                            form.reset();
+                        } else {
+                            // Server error
+                            throw new Error(data.message || 'Form submission failed');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: error.message || 'Something went wrong. Please try again later.',
+                            confirmButtonColor: '#30a8b4'
+                        });
+                    })
+                    .finally(() => {
+                        // Reset submission flag and button state
+                        isSubmitting = false;
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnText;
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>

@@ -91,12 +91,7 @@
                     
                     <p>Grand Ceylon Holidays ensures your retreat environment supports your practice with comfortable accommodation in peaceful settings, nourishing vegetarian meals prepared with mindful attention, and a thoughtful balance between guided activities and personal space. Whether you're new to meditation or looking to deepen your existing practice, this Mindful Moments retreat offers the perfect setting to cultivate awareness, find inner calm, and develop mindfulness skills you can carry into your everyday life.</p>
                     
-                    <div class="tour-page head-icon mt-4">
-                        <p><i class="ti-time"></i> 5 Days 4 Nights</p>
-                        <p><i class="ti-user"></i> Small Groups (Max 12)</p>
-                        <p><i class="ti-location-pin"></i> Sri Lanka</p>
-                        <p><i class="ti-face-smile"></i> 9.7 Superb</p>
-                    </div>
+                  
                 </div>
                 
                 <!-- Contact Form Section -->
@@ -117,10 +112,10 @@
                                     <div class="row">
                                         <input type="hidden" name="packageName" value="Asking about Mindful Moments Sri Lanka">
                                         <div class="col-md-12 form-group">
-                                            <input name="name" type="text" placeholder="Your Name *" required>
+                                            <input name="name" type="text" placeholder="Name *" required>
                                         </div>
                                         <div class="col-md-12 form-group">
-                                            <input name="email" type="email" placeholder="Your Email *" required>
+                                            <input name="email" type="email" placeholder="Email *" required>
                                         </div>
                                         <div class="col-md-12 form-group">
                                             <div class="input-group">
@@ -148,7 +143,7 @@
                                                     <option data-countryCode="NP" value="+977">NP +977</option>
                                                     <option data-countryCode="MV" value="+960">MV +960</option>
                                                 </select>
-                                                <input name="phone" type="text" class="form-control" placeholder="Your Number *" required>
+                                                <input name="phone" type="text" class="form-control" placeholder="Phone Number *" required>
                                             </div>
                                         </div>
                                         <div class="col-md-12 form-group">
@@ -216,10 +211,25 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById("contactForm");
+            let isSubmitting = false; // Flag to prevent duplicate submissions
             
             if (form) {
                 form.addEventListener("submit", function(e) {
                     e.preventDefault();
+                    
+                    // Prevent duplicate submissions
+                    if (isSubmitting) {
+                        return false;
+                    }
+                    
+                    // Set submission flag
+                    isSubmitting = true;
+                    
+                    // Disable submit button
+                    const submitBtn = form.querySelector('button[type="submit"]');
+                    const originalBtnText = submitBtn.innerHTML;
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<i class="ti-reload mr-2"></i> Sending...';
                     
                     // Show loading indicator
                     Swal.fire({
@@ -234,10 +244,8 @@
                     
                     const formData = new FormData(form);
                     
-                    // Add required Web3Forms parameters
-                    formData.append('access_key', '371eb81f-603b-4b28-817b-74577c513da9');
-                    formData.append('from_name', 'GCL-CONTACT');
-                    formData.append('subject', 'Grand Ceylon Holidays-New Form Submission !!');
+                    // DO NOT add parameters that are already in the form as hidden inputs
+                    // This prevents duplicate parameters
                     
                     fetch('https://api.web3forms.com/submit', {
                         method: 'POST',
@@ -267,6 +275,12 @@
                             text: error.message || 'Something went wrong. Please try again later.',
                             confirmButtonColor: '#30a8b4'
                         });
+                    })
+                    .finally(() => {
+                        // Reset submission flag and button state
+                        isSubmitting = false;
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnText;
                     });
                 });
             }

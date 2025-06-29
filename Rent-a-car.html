@@ -12,8 +12,63 @@
     <link rel="stylesheet" href="css/style.css" />
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-    <!-- Custom CSS for Interactive Map -->
+    <!-- Custom CSS for Fleet Carousel Navigation -->
     <style>
+        .fleet-carousel .owl-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            transform: translateY(-50%);
+        }
+        
+        .fleet-carousel .owl-nav button {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.8) !important;
+            color: #30a8b4 !important;
+            border-radius: 50%;
+            font-size: 20px;
+            line-height: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .fleet-carousel .owl-nav button:hover {
+            background: #30a8b4 !important;
+            color: #fff !important;
+        }
+        
+        .fleet-carousel .owl-nav .owl-prev {
+            left: -90px;
+        }
+        
+        .fleet-carousel .owl-nav .owl-next {
+            right: -90px;
+        }
+        
+        .fleet-carousel .owl-nav button i {
+            line-height: unset;
+        }
+        
+        @media (max-width: 767px) {
+            .fleet-carousel .owl-nav button {
+                width: 35px;
+                height: 35px;
+                line-height: 35px;
+            }
+            
+            .fleet-carousel .owl-nav .owl-prev {
+                left: -10px;
+            }
+            
+            .fleet-carousel .owl-nav .owl-next {
+                right: -10px;
+            }
+        }
+        
+        /* Custom CSS for Interactive Map */
         .map-container {
             position: relative;
             overflow: hidden;
@@ -168,12 +223,7 @@
 
 <body>
     <!-- Preloader -->
-    <div class="preloader-bg"></div>
-    <div id="preloader">
-        <div id="preloader-status">
-            <div class="preloader-position loader"> <span></span> </div>
-        </div>
-    </div>
+
     <!-- Progress scroll totop -->
     <div class="progress-wrap cursor-pointer">
         <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
@@ -194,66 +244,7 @@
         </div>
     </div>
 
-    <!-- Car Rental Introduction -->
-    <section class="section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 mb-50 text-center">
-                    <div class="section-subtitle mb-10">Explore Sri Lanka at Your Own Pace</div>
-                    <div class="section-title">Our Premium Car Rental Service</div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-8 offset-md-2 text-center mb-50">
-                    <p>Experience the freedom to explore Sri Lanka's breathtaking landscapes, ancient cities, and hidden gems with our premium car rental service. Whether you're planning a family adventure, a romantic getaway, or a business trip, we offer a wide range of vehicles to suit your needs and budget.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 mb-30">
-                    <div class="item">
-                        <div class="position-re o-hidden"> <img src="img/destination/italy1.jpg" alt="" class="img-fluid"> </div>
-                        <div class="con">
-                            <h5 style="margin-top:15px;"><a href="#">Flexible Rental Options</a></h5>
-                            <div class="line"></div>
-                            <div class="row mt-20">
-                                <div class="col-md-12 text-center">
-                                    <div class="butn-dark"> <a href="#booking-form"><span>Book Now</span></a> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-30">
-                    <div class="item">
-                        <div class="position-re o-hidden"> <img src="img/destination/italy1.jpg" alt="" class="img-fluid"> </div>
-                        <div class="con">
-                            <h5 style="margin-top:15px;"><a href="#">Professional Drivers</a></h5>
-                            <div class="line"></div>
-                            <div class="row mt-20">
-                                <div class="col-md-12 text-center">
-                                    <div class="butn-dark"> <a href="#booking-form"><span>Book Now</span></a> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-30">
-                    <div class="item">
-                        <div class="position-re o-hidden"> <img src="img/destination/italy1.jpg" alt="" class="img-fluid"> </div>
-                        <div class="con">
-                            <h5 style="margin-top:15px;"><a href="#">Well-Maintained Vehicles</a></h5>
-                            <div class="line"></div>
-                            <div class="row mt-20">
-                                <div class="col-md-12 text-center">
-                                    <div class="butn-dark"> <a href="#booking-form"><span>Book Now</span></a> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  
 
     <!-- Fleet Portfolio -->
     <section class="fleet-portfolio section-padding bg-lightnav">
@@ -264,74 +255,173 @@
                     <div class="section-title">Our Fleet Portfolio</div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-4 mb-40">
-                    <div class="item">
-                        <div class="position-re o-hidden"> <img src="img/destination/italy1.jpg" alt="" class="img-fluid"> </div>
-                        <div class="con">
-                            <h5 style="margin-top:15px;"><a href="#"  >Economy tCars</a></h5>
-                            <div class="line"></div>
-                            <p class="mt-20 mb-20">Fuel-efficient compact cars perfect for city exploration and budget-conscious travelers.</p>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li class="mb-10"><i class="ti-check mr-10"></i> Air Conditioning</li>
-                                        <li><i class="ti-check mr-10"></i> 4 Passengers</li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li class="mb-10"><i class="ti-check mr-10"></i> Fuel Efficient</li>
-                                        <li><i class="ti-check mr-10"></i> Manual/Auto</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-40">
-                    <div class="item">
-                        <div class="position-re o-hidden"> <img src="img/destination/italy1.jpg" alt="" class="img-fluid"> </div>
-                        <div class="con">
-                            <h5 style="margin-top:15px;"><a href="#">SUVs & Crossovers</a></h5>
-                            <div class="line"></div>
-                            <p class="mt-20 mb-20">Spacious and comfortable SUVs ideal for family trips and exploring rough terrain areas.</p>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li class="mb-10"><i class="ti-check mr-10"></i> Air Conditioning</li>
-                                        <li><i class="ti-check mr-10"></i> 7 Passengers</li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li class="mb-10"><i class="ti-check mr-10"></i> Ample Storage</li>
-                                        <li><i class="ti-check mr-10"></i> Automatic</li>
-                                    </ul>
+            <div class="row" style="margin-top:40px;">
+                <div class="col-md-12">
+                    <div class="fleet-carousel owl-carousel owl-theme">
+                        <!-- Toyota Prius -->
+                        <div class="item">
+                            <div class="position-re o-hidden"> <img src="./img/cglimg/rent-car/Prius.png" alt="Toyota Prius" class="img-fluid"> </div>
+                            <div class="con">
+                                <h5 style="margin-top:15px; text-align:center;"><a href="#">Toyota Prius</a></h5>
+                                <div class="line"></div>
+                                <p class="mt-20 mb-20" style="min-height:80px;">Eco-friendly hybrid sedan with excellent fuel efficiency, perfect for city tours and airport transfers.</p>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-10"><i class="ti-check mr-10"></i> Hybrid Engine</li>
+                                            <li><i class="ti-check mr-10"></i> 4 Passengers</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-6">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-10"><i class="ti-check mr-10"></i> Fuel Efficient</li>
+                                            <li><i class="ti-check mr-10"></i> Automatic</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-40">
-                    <div class="item">
-                        <div class="position-re o-hidden"> <img src="img/destination/italy1.jpg" alt="" class="img-fluid"> </div>
-                        <div class="con">
-                            <h5 style="margin-top:15px;"><a href="#">Premium & Luxury</a></h5>
-                            <div class="line"></div>
-                            <p class="mt-20 mb-20">Luxury vehicles offering superior comfort and style for those seeking a premium experience.</p>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li class="mb-10"><i class="ti-check mr-10"></i> Climate Control</li>
-                                        <li><i class="ti-check mr-10"></i> 5 Passengers</li>
-                                    </ul>
+                        
+                        <!-- KIA Sportage SUV -->
+                        <div class="item">
+                            <div class="position-re o-hidden"> <img src="./img/cglimg/rent-car/kia sportage.png" alt="KIA Sportage SUV" class="img-fluid"> </div>
+                            <div class="con">
+                                <h5 style="margin-top:15px; text-align:center;"><a href="#">KIA Sportage SUV</a></h5>
+                                <div class="line"></div>
+                                <p class="mt-20 mb-20" style="min-height:80px;">Modern SUV with stylish design and advanced features, ideal for both city driving and countryside exploration.</p>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-10"><i class="ti-check mr-10"></i> Climate Control</li>
+                                            <li><i class="ti-check mr-10"></i> 5 Passengers</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-6">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-10"><i class="ti-check mr-10"></i> Ample Storage</li>
+                                            <li><i class="ti-check mr-10"></i> Automatic</li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li class="mb-10"><i class="ti-check mr-10"></i> Premium Features</li>
-                                        <li><i class="ti-check mr-10"></i> Automatic</li>
-                                    </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Toyota KDH -->
+                        <div class="item">
+                            <div class="position-re o-hidden"> <img src="./img/cglimg/rent-car/KDH.png" alt="Toyota KDH" class="img-fluid"> </div>
+                            <div class="con">
+                                <h5 style="margin-top:15px; text-align:center;"><a href="#">Toyota KDH</a></h5>
+                                <div class="line"></div>
+                                <p class="mt-20 mb-20" style="min-height:80px;">Spacious and reliable van perfect for group travel with comfortable seating and ample luggage space.</p>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-10"><i class="ti-check mr-10"></i> Air Conditioning</li>
+                                            <li><i class="ti-check mr-10"></i> 10 Passengers</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-6">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-10"><i class="ti-check mr-10"></i> Large Luggage Space</li>
+                                            <li><i class="ti-check mr-10"></i> Manual</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Toyota KDH Highroof -->
+                        <div class="item">
+                            <div class="position-re o-hidden"> <img src="./img/cglimg/rent-car/KDH high roof.png" alt="Toyota KDH Highroof" class="img-fluid"> </div>
+                            <div class="con">
+                                <h5 style="margin-top:15px; text-align:center;"><a href="#">Toyota KDH Highroof</a></h5>
+                                <div class="line"></div>
+                                <p class="mt-20 mb-20" style="min-height:80px;">Extended height van offering extra headroom and comfort for passengers with additional luggage capacity.</p>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-10"><i class="ti-check mr-10"></i> Air Conditioning</li>
+                                            <li><i class="ti-check mr-10"></i> 12 Passengers</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-6">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-10"><i class="ti-check mr-10"></i> Extra Headroom</li>
+                                            <li><i class="ti-check mr-10"></i> Manual</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Nissan Caravan E25 -->
+                        <div class="item">
+                            <div class="position-re o-hidden"> <img src="./img/cglimg/rent-car/caravan.png" alt="Nissan Caravan E25" class="img-fluid"> </div>
+                            <div class="con">
+                                <h5 style="margin-top:15px; text-align:center;"><a href="#">Nissan Caravan E25</a></h5>
+                                <div class="line"></div>
+                                <p class="mt-20 mb-20" style="min-height:80px;">Versatile and dependable van with excellent comfort and durability for long-distance group travel.</p>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-10"><i class="ti-check mr-10"></i> Air Conditioning</li>
+                                            <li><i class="ti-check mr-10"></i> 9 Passengers</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-6">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-10"><i class="ti-check mr-10"></i> Comfortable Seating</li>
+                                            <li><i class="ti-check mr-10"></i> Manual/Auto</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Toyota Coaster Bus -->
+                        <div class="item">
+                            <div class="position-re o-hidden"> <img src="./img/cglimg/rent-car/toyota coaster.png" alt="Toyota Coaster Bus" class="img-fluid"> </div>
+                            <div class="con">
+                                <h5 style="margin-top:15px; text-align:center;"><a href="#">Toyota Coaster Bus</a></h5>
+                                <div class="line"></div>
+                                <p class="mt-20 mb-20" style="min-height:80px;">Spacious minibus perfect for larger groups, offering comfort and reliability for tours and transfers.</p>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-10"><i class="ti-check mr-10"></i> Air Conditioning</li>
+                                            <li><i class="ti-check mr-10"></i> 29 Passengers</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-6">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-10"><i class="ti-check mr-10"></i> Spacious Interior</li>
+                                            <li><i class="ti-check mr-10"></i> Manual</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Toyota Shuttle -->
+                        <div class="item">
+                            <div class="position-re o-hidden"> <img src="./img/cglimg/rent-car/honda shuttle.png" alt="Toyota Shuttle" class="img-fluid"> </div>
+                            <div class="con">
+                                <h5 style="margin-top:15px; text-align:center;"><a href="#">Toyota Shuttle</a></h5>
+                                <div class="line"></div>
+                                <p class="mt-20 mb-20" style="min-height:80px;">Compact and efficient shuttle van ideal for airport transfers and small group transportation needs.</p>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-10"><i class="ti-check mr-10"></i> Air Conditioning</li>
+                                            <li><i class="ti-check mr-10"></i> 7 Passengers</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-6">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-10"><i class="ti-check mr-10"></i> Luggage Space</li>
+                                            <li><i class="ti-check mr-10"></i> Automatic</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -668,8 +758,12 @@
             <div class="row">
                 <div class="col-md-8 offset-md-2">
                     <div class="booking-box p-40">
-                        <form id="carRentalForm" method="post" action="../quick-book.php" class="contact-form" style="background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.05);">
-                            <input type="hidden" name="package" value="Car Rental Inquiry">
+                        <form id="carRentalForm" method="post" action="https://api.web3forms.com/submit" class="contact-form" style="background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.05);">
+                            <input type="hidden" name="access_key" value="371eb81f-603b-4b28-817b-74577c513da9">
+                            <input type="hidden" name="from_name" value="GCL-CAR-RENTAL">
+                            <input type="hidden" name="subject" value="Grand Ceylon Holidays-New Car Rental Inquiry">
+                            <input type="hidden" name="packageName" value="Car Rental Inquiry">
+                            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label">Pick-up Date *</label>
@@ -708,16 +802,39 @@
                                     </select>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label class="form-label">Your Name *</label>
-                                    <input type="text" name="name" class="custom-input" placeholder="Your Full Name" style="height: 42px; border: 1px solid #e0e0e0; border-radius: 4px; padding: 0 15px; width: 100%; font-size: 14px; background-color: #fff;" required>
+                                    <label class="form-label">Full Name *</label>
+                                    <input type="text" name="name" class="custom-input" placeholder="Full Name" style="height: 42px; border: 1px solid #e0e0e0; border-radius: 4px; padding: 0 15px; width: 100%; font-size: 14px; background-color: #fff;" required>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label class="form-label">Your Email *</label>
-                                    <input type="email" name="email" class="custom-input" placeholder="Your Email Address" style="height: 42px; border: 1px solid #e0e0e0; border-radius: 4px; padding: 0 15px; width: 100%; font-size: 14px; background-color: #fff;" required>
+                                    <label class="form-label">Email Address *</label>
+                                    <input type="email" name="email" class="custom-input" placeholder=" Email Address" style="height: 42px; border: 1px solid #e0e0e0; border-radius: 4px; padding: 0 15px; width: 100%; font-size: 14px; background-color: #fff;" required>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label">Phone Number *</label>
-                                    <input type="tel" name="phone" class="custom-input" placeholder="Your Phone Number" style="height: 42px; border: 1px solid #e0e0e0; border-radius: 4px; padding: 0 15px; width: 100%; font-size: 14px; background-color: #fff;" required>
+                                    <div class="input-group">
+                                        <select class="form-control" style="max-width: 120px; height: 42px;" name="country_code" required>
+                                            <option data-countryCode="US" value="+1">US +1</option>
+                                            <option data-countryCode="LK" value="+94" selected>Sri Lanka +94</option>
+                                            <option data-countryCode="IN" value="+91">India +91</option>
+                                            <option data-countryCode="GB" value="+44">UK +44</option>
+                                            <option data-countryCode="AE" value="+971">UAE +971</option>
+                                            <option data-countryCode="AU" value="+61">Australia +61</option>
+                                            <option data-countryCode="DE" value="+49">Germany +49</option>
+                                            <option data-countryCode="FR" value="+33">France +33</option>
+                                            <option data-countryCode="CA" value="+1">Canada +1</option>
+                                            <option data-countryCode="CN" value="+86">China +86</option>
+                                            <option data-countryCode="JP" value="+81">Japan +81</option>
+                                        </select>
+                                        <input type="tel" name="phone" class="form-control" placeholder="Phone Number" style="height: 42px; border: 1px solid #e0e0e0; border-radius: 4px; padding: 0 15px; font-size: 14px; background-color: #fff;" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Passport  Number *</label>
+                                    <input type="tel" name="number" class="custom-input" placeholder="Passport Number" style="height: 42px; border: 1px solid #e0e0e0; border-radius: 4px; padding: 0 15px; width: 100%; font-size: 14px; background-color: #fff;" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Country</label>
+                                    <input type="tel" name="phone" class="custom-input" placeholder="Phone Number" style="height: 42px; border: 1px solid #e0e0e0; border-radius: 4px; padding: 0 15px; width: 100%; font-size: 14px; background-color: #fff;" required>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label">Additional Services</label>
@@ -730,14 +847,7 @@
                                             <input class="form-check-input" type="checkbox" name="additional_services[]" value="Child Seat" id="childSeat">
                                             <label class="form-check-label" for="childSeat">Child Seat</label>
                                         </div>
-                                        <div class="form-check me-4 mb-2">
-                                            <input class="form-check-input" type="checkbox" name="additional_services[]" value="Additional Driver" id="addDriver">
-                                            <label class="form-check-label" for="addDriver">Additional Driver</label>
-                                        </div>
-                                        <div class="form-check me-4 mb-2">
-                                            <input class="form-check-input" type="checkbox" name="additional_services[]" value="Premium Insurance" id="insurance">
-                                            <label class="form-check-label" for="insurance">Premium Insurance</label>
-                                        </div>
+                                     
                                         <div class="form-check mb-2">
                                             <input class="form-check-input" type="checkbox" name="additional_services[]" value="Airport Pickup/Drop-off" id="airport">
                                             <label class="form-check-label" for="airport">Airport Pickup/Drop-off</label>
@@ -757,63 +867,80 @@
                         </form>
                         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
                         <script>
-                            document.getElementById('carRentalForm').addEventListener('submit', function(e) {
-                                e.preventDefault();
+                            document.addEventListener('DOMContentLoaded', function() {
+                                const form = document.getElementById("carRentalForm");
                                 
-                                const form = e.target;
-                                const formData = new FormData(form);
-                                const submitButton = form.querySelector('button[type="submit"]');
-                                const originalButtonText = submitButton.innerHTML;
-                                
-                                // Disable submit button
-                                submitButton.disabled = true;
-                                submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
-                                
-                                // Send form data
-                                fetch(form.action, {
-                                    method: 'POST',
-                                    body: formData
-                                })
-                                .then(response => {
-                                    if (!response.ok) {
-                                        throw new Error('Network response was not ok');
-                                    }
-                                    return response.json();
-                                })
-                                .then(data => {
-                                    // Show success message
-                                    Swal.fire({
-                                        title: 'Thank You!',
-                                        text: 'Your car rental request has been sent successfully. We will contact you shortly!',
-                                        icon: 'success',
-                                        confirmButtonColor: '#30a8b4',
-                                        confirmButtonText: 'OK'
+                                if (form) {
+                                    let isSubmitting = false;
+                                    
+                                    form.addEventListener("submit", function(e) {
+                                        e.preventDefault();
+                                        
+                                        if (isSubmitting) return false;
+                                        isSubmitting = true;
+                                        
+                                        // Show loading indicator with SweetAlert2
+                                        Swal.fire({
+                                            title: 'Sending...',
+                                            text: 'Please wait while we process your request',
+                                            allowOutsideClick: false,
+                                            showConfirmButton: false,
+                                            didOpen: () => {
+                                                Swal.showLoading();
+                                            }
+                                        });
+                                        
+                                        // Also update button state for better UX
+                                        const submitBtn = this.querySelector('button[type="submit"]');
+                                        const originalBtnText = submitBtn.innerHTML;
+                                        submitBtn.disabled = true;
+                                        submitBtn.innerHTML = '<i class="ti-email"></i> Sending...';
+                                        
+                                        const formData = new FormData(form);
+                                        
+                                        fetch('https://api.web3forms.com/submit', {
+                                            method: 'POST',
+                                            body: formData
+                                        })
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            if (data.success) {
+                                                // Success
+                                                Swal.fire({
+                                                    icon: 'success',
+                                                    title: 'Thank You!',
+                                                    text: 'Your car rental request has been sent successfully. We will contact you shortly!',
+                                                    confirmButtonColor: '#30a8b4'
+                                                });
+                                                form.reset();
+                                            } else {
+                                                // Server error
+                                                throw new Error(data.message || 'Form submission failed');
+                                            }
+                                        })
+                                        .catch(error => {
+                                            console.error('Error:', error);
+                                            Swal.fire({
+                                                icon: 'error',
+                                                title: 'Oops...',
+                                                text: error.message || 'Something went wrong. Please try again later.',
+                                                confirmButtonColor: '#30a8b4'
+                                            });
+                                        })
+                                        .finally(() => {
+                                            // Reset button state
+                                            submitBtn.disabled = false;
+                                            submitBtn.innerHTML = originalBtnText;
+                                            isSubmitting = false;
+                                        });
                                     });
                                     
-                                    // Reset form
-                                    form.reset();
-                                })
-                                .catch(error => {
-                                    console.error('Error:', error);
-                                    Swal.fire({
-                                        title: 'Error!',
-                                        text: 'There was an error submitting your request. Please try again later or contact us directly.',
-                                        icon: 'error',
-                                        confirmButtonColor: '#30a8b4',
-                                        confirmButtonText: 'OK'
+                                    // Set minimum date for date inputs (today)
+                                    const today = new Date().toISOString().split('T')[0];
+                                    document.querySelectorAll('input[type="date"]').forEach(input => {
+                                        input.min = today;
                                     });
-                                })
-                                .finally(() => {
-                                    // Re-enable submit button
-                                    submitButton.disabled = false;
-                                    submitButton.innerHTML = originalButtonText;
-                                });
-                            });
-                            
-                            // Set minimum date for date inputs (today)
-                            const today = new Date().toISOString().split('T')[0];
-                            document.querySelectorAll('input[type="date"]').forEach(input => {
-                                input.min = today;
+                                }
                             });
                         </script>
                     </div>
@@ -853,155 +980,31 @@
             $("#footer-include").load("components/footer.html");
         });
     </script>
+    
+    <!-- Initialize Fleet Carousel -->
     <script>
         $(document).ready(function() {
-            // Show admin controls with a special key combination (Ctrl+Shift+M)
-            $(document).keydown(function(e) {
-                if (e.ctrlKey && e.shiftKey && e.which === 77) {
-                    $('.admin-controls').toggle();
-                }
-            });
-            
-            // Variables to track dragging state
-            let isDragEnabled = false;
-            let isDragging = false;
-            let selectedPoint = null;
-            let offsetX, offsetY;
-            
-            // Toggle drag mode
-            $('#toggle-drag').click(function() {
-                isDragEnabled = !isDragEnabled;
-                if (isDragEnabled) {
-                    $(this).text('Disable Drag Mode').removeClass('btn-primary').addClass('btn-danger');
-                    $('.map-points-overlay').css('pointer-events', 'auto');
-                } else {
-                    $(this).text('Enable Drag Mode').removeClass('btn-danger').addClass('btn-primary');
-                    $('.map-points-overlay').css('pointer-events', 'none');
-                }
-            });
-            
-            // Save positions button
-            $('#save-positions').click(function() {
-                let positions = [];
-                $('.map-point').each(function() {
-                    const point = $(this);
-                    const location = point.data('location');
-                    const top = point.css('top');
-                    const left = point.css('left');
-                    positions.push({
-                        location: location,
-                        top: top,
-                        left: left
-                    });
-                });
-                
-                // Save positions to local storage
-                localStorage.setItem('mapPointPositions', JSON.stringify(positions));
-                
-                // Display the positions in console for copying
-                console.log('Map Point Positions:');
-                positions.forEach(pos => console.log(`${pos.location}: top: ${pos.top}, left: ${pos.left}`));
-                alert('Positions saved! Refresh the page to see if they persist.');
-                
-                // Ensure drag mode is still enabled if needed
-                if (isDragEnabled) {
-                    $('.map-points-overlay').css('pointer-events', 'auto');
-                }
-            });
-            
-            // Load saved positions from local storage
-            function loadSavedPositions() {
-                const savedPositions = localStorage.getItem('mapPointPositions');
-                if (savedPositions) {
-                    try {
-                        const positions = JSON.parse(savedPositions);
-                        positions.forEach(pos => {
-                            $(`.map-point[data-location="${pos.location}"]`).css({
-                                top: pos.top,
-                                left: pos.left
-                            });
-                        });
-                        console.log('Loaded saved positions');
-                    } catch (e) {
-                        console.error('Error loading saved positions', e);
+            $(".fleet-carousel").owlCarousel({
+                loop: true,
+                margin: 30,
+                nav: true,
+                dots: false,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                navText: ['<i class="ti-angle-left"></i>', '<i class="ti-angle-right"></i>'],
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 2
+                    },
+                    1000: {
+                        items: 3
                     }
                 }
-            }
-            
-            // Load saved positions on page load
-            loadSavedPositions();
-            
-            // Make points draggable
-            $('.map-point').on('mousedown', function(e) {
-                if (!isDragEnabled) return;
-                
-                e.preventDefault();
-                selectedPoint = $(this);
-                
-                // Calculate the offset of the mouse pointer relative to the point
-                const pointRect = this.getBoundingClientRect();
-                offsetX = e.clientX - pointRect.left;
-                offsetY = e.clientY - pointRect.top;
-                
-                isDragging = true;
             });
-            
-            $(document).on('mousemove', function(e) {
-                if (!isDragging || !selectedPoint) return;
-                
-                // Calculate new position
-                const mapRect = $('.map-points-overlay')[0].getBoundingClientRect();
-                const x = e.clientX - mapRect.left - offsetX;
-                const y = e.clientY - mapRect.top - offsetY;
-                
-                // Convert to percentages for responsive positioning
-                const percentX = (x / mapRect.width) * 100;
-                const percentY = (y / mapRect.height) * 100;
-                
-                // Update position
-                selectedPoint.css({
-                    left: `${percentX}%`,
-                    top: `${percentY}%`
-                });
-                
-                // Update position display
-                $('#position-display').text(`top: ${percentY.toFixed(2)}%, left: ${percentX.toFixed(2)}%`);
-            });
-            
-            $(document).on('mouseup', function() {
-                isDragging = false;
-                selectedPoint = null;
-            });
-            
-            // Add event listener to map points for showing location info
-            $('.map-point').on('click', function(e) {
-                if (isDragEnabled || isDragging) {
-                    e.stopPropagation();
-                    return;
-                }
-                
-                // Get the location ID
-                var locationId = $(this).attr('data-location');
-                
-                // Hide all location info
-                $('.location-info').hide();
-                $('.location-default').hide();
-                
-                // Show the selected location info
-                $('#' + locationId).fadeIn();
-                
-                // Add active class to the map point
-                $(this).addClass('active-point');
-                
-                // Remove active class from other map points
-                $('.map-point').not(this).removeClass('active-point');
-                
-                e.stopPropagation(); // Prevent the click from propagating to the map
-            });
-            
-            // Show default info initially
-            $('.location-default').show();
-            $('.location-info').hide();
         });
     </script>
 </body>

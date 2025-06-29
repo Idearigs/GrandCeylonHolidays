@@ -31,10 +31,34 @@
     <!-- Tour Page Slider -->
     <header class="header slider">
         <div class="owl-carousel owl-theme">
-            <!-- The opacity on the image is made with "data-overlay-dark="number". You can change it using the numbers 0-9. -->
-            <div class="text-center item bg-img" data-overlay-dark="2" data-background="../img/slider/rafting1.jpg"></div>
-            <div class="text-center item bg-img" data-overlay-dark="2" data-background="../img/slider/rafting2.jpg"></div>
-            <div class="text-center item bg-img" data-overlay-dark="2" data-background="../img/slider/rafting3.jpg"></div>
+            <div class="text-center item bg-img" data-overlay-dark="3" data-background="../img/cglimg/Water/whitewater-rafting.jpg">
+                <div class="v-middle caption">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1">
+                                <h4>Thrilling Whitewater Adventure</h4>
+                                <h1>River <span>Rafting Day</span></h1>
+                                <p>Experience the rush of Sri Lanka's best whitewater rapids in Kitulgala's Kelani River</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Second Slider -->
+            <div class="text-center item bg-img" data-overlay-dark="4" data-background="../img/cglimg/Water/rafting-team.jpg">
+                <div class="v-middle caption">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1">
+                                <h4>Team Adventure in Tropical Paradise</h4>
+                                <h1>Rapids <span>Expedition</span></h1>
+                                <p>Navigate through exciting class 2-3 rapids surrounded by lush rainforest scenery</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- arrow down -->
         <div class="arrow bounce text-center">
@@ -58,21 +82,23 @@
                     </div>
                     
                     <!-- Description Content -->
-                    <h4>Thrilling Rapids and Scenic Waterways</h4>
-                    <p>Experience the exhilarating rush of white-water rafting on Sri Lanka's pristine rivers with Grand Ceylon Holidays' River Rafting Day excursion. This adventure-packed day takes you through stunning landscapes and challenging rapids for an unforgettable journey that combines adrenaline with natural beauty.</p>
+                    <h4>Whitewater Adventure in Sri Lanka's Best Rapids</h4>
+                    <p>Experience the ultimate adrenaline rush with our River Rafting Day, featuring Sri Lanka's most exciting whitewater destinations. Our expert-guided expeditions take you through thrilling rapids and stunning river landscapes, perfect for adventure seekers of all levels.</p>
                     
-                    <p>Your adventure begins with a safety briefing from our experienced rafting guides who will equip you with all necessary gear and instructions. Then it's time to hit the water as you navigate through varying grades of rapids on one of Sri Lanka's scenic rivers, such as the Kelani River which flows through lush rainforests and picturesque valleys.</p>
+                    <h5>Top Rafting Locations</h5>
+                    <p><strong>Kitulgala (Kelani River):</strong> The most popular whitewater destination, featuring exciting class 2-3 rapids with names like "Butter Crunch" and "The Washing Machine," surrounded by lush rainforest.</p>
                     
-                    <p>Between the exciting rapids, enjoy moments of tranquility as you float through calm stretches, taking in the breathtaking scenery of dense forests, cascading waterfalls, and diverse wildlife along the riverbanks. Your knowledgeable guides will point out interesting flora and fauna while sharing insights about the ecological importance of these river systems.</p>
+                    <p><strong>Kithulgala (Kalu Ganga):</strong> A more challenging route with continuous rapids, perfect for experienced rafters looking for an extra thrill.</p>
                     
-                    <p>This full-day excursion includes a delicious riverside lunch and refreshments to keep your energy levels high. No prior rafting experience is necessary, as our guides provide comprehensive instruction suitable for beginners while ensuring enough excitement for more experienced rafters. Grand Ceylon Holidays prioritizes safety with top-quality equipment and highly trained guides who are certified in swift water rescue techniques.</p>
+                    <p><strong>Nuwara Eliya (Kothmale):</strong> High-altitude rafting through tea country, offering cooler temperatures and stunning mountain views.</p>
                     
-                    <div class="tour-page head-icon mt-4">
-                        <p><i class="ti-time"></i> Full-day Excursion</p>
-                        <p><i class="ti-user"></i> Group: 4 - 12 People</p>
-                        <p><i class="ti-location-pin"></i> Sri Lanka</p>
-                        <p><i class="ti-face-smile"></i> 9.7 Superb</p>
-                    </div>
+                    <h5>What Makes Our Rafting Special</h5>
+                    <p>Our professional guides, certified in swift water rescue, ensure your safety while maximizing the fun. We provide top-quality equipment including helmets, life jackets, and paddles. The experience includes safety training, practice sessions, and continuous guidance throughout the journey.</p>
+                    
+                    <p>Between the heart-pumping rapids, enjoy moments of calm where you can take in the breathtaking scenery of waterfalls, exotic birds, and maybe even spot monkeys playing along the riverbanks. Our guides share fascinating insights about the local ecosystem and point out interesting wildlife.</p>
+                    
+                    <p>The adventure includes a delicious riverside lunch featuring local flavors, with vegetarian options available. We cater to all skill levels, from first-timers to experienced rafters, with routes that can be adjusted for difficulty. Transportation from your hotel, all necessary equipment, and refreshments are included for a hassle-free experience.</p>
+                 
                 </div>
                 
                 <!-- Contact Form Section -->
@@ -81,23 +107,51 @@
                         <div class="right-sidebar">
                             <div class="right-sidebar item">
                                 <h3>Contact Us</h3>
-                                <form method="post" class="right-sidebar item-form contact__form" action="../quick-book.php">
-                                    <!-- form message -->
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="alert alert-success contact__msg" style="display: none" role="alert">Your message was sent successfully.</div>
-                                        </div>
-                                    </div>
+                                <form method="post" class="right-sidebar item-form contact__form" action="https://api.web3forms.com/submit" id="contactForm">
+                                    <!-- Web3Forms Access Key -->
+                                    <input type="hidden" name="access_key" value="371eb81f-603b-4b28-817b-74577c513da9">
+                                    <input type="hidden" name="from_name" value="GCL-CONTACT">
+                                    <input type="hidden" name="subject" value="Grand Ceylon Holidays-New Form Submission !!">
+                                    <input type="hidden" name="redirect" value="">
+                                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                                    
                                     <!-- form elements -->
                                     <div class="row">
+                                        <input type="hidden" name="packageName" value="River Rafting Day">
                                         <div class="col-md-12 form-group">
-                                            <input name="name" type="text" placeholder="Your Name *" required>
+                                            <input name="name" type="text" placeholder="Name *" required>
                                         </div>
                                         <div class="col-md-12 form-group">
-                                            <input name="email" type="email" placeholder="Your Email *" required>
+                                            <input name="email" type="email" placeholder="Email *" required>
                                         </div>
                                         <div class="col-md-12 form-group">
-                                            <input name="phone" type="text" placeholder="Your Number *" required>
+                                            <div class="input-group">
+                                                <select class="form-control" style="max-width: 120px;" name="country_code" required>
+                                                    <option data-countryCode="US" value="+1">US +1</option>
+                                                    <option data-countryCode="LK" value="+94">LK +94</option>
+                                                    <option data-countryCode="IN" value="+91">IN +91</option>
+                                                    <option data-countryCode="GB" value="+44">UK +44</option>
+                                                    <option data-countryCode="CA" value="+1">CA +1</option>
+                                                    <option data-countryCode="AU" value="+61">AU +61</option>
+                                                    <option data-countryCode="DE" value="+49">DE +49</option>
+                                                    <option data-countryCode="FR" value="+33">FR +33</option>
+                                                    <option data-countryCode="IT" value="+39">IT +39</option>
+                                                    <option data-countryCode="JP" value="+81">JP +81</option>
+                                                    <option data-countryCode="CN" value="+86">CN +86</option>
+                                                    <option data-countryCode="AE" value="+971">AE +971</option>
+                                                    <option data-countryCode="SA" value="+966">SA +966</option>
+                                                    <option data-countryCode="RU" value="+7">RU +7</option>
+                                                    <option data-countryCode="SG" value="+65">SG +65</option>
+                                                    <option data-countryCode="MY" value="+60">MY +60</option>
+                                                    <option data-countryCode="TH" value="+66">TH +66</option>
+                                                    <option data-countryCode="ID" value="+62">ID +62</option>
+                                                    <option data-countryCode="PK" value="+92">PK +92</option>
+                                                    <option data-countryCode="BD" value="+880">BD +880</option>
+                                                    <option data-countryCode="NP" value="+977">NP +977</option>
+                                                    <option data-countryCode="MV" value="+960">MV +960</option>
+                                                </select>
+                                                <input name="phone" type="text" class="form-control" placeholder="Phone Number *" required>
+                                            </div>
                                         </div>
                                         <div class="col-md-12 form-group">
                                             <select name="country" class="form-control" required>
@@ -120,7 +174,7 @@
                                             <textarea name="message" rows="4" placeholder="Your Message *" required></textarea>
                                         </div>
                                         <div class="col-md-12">
-                                            <button type="submit" class="butn-dark"><span>Send Message</span></button>
+                                            <button type="submit" class="butn-dark w-100" style="background: #30a8b4; transition: all 0.3s ease;"><span><i class="ti-email mr-2"></i> Send Message</span></button>
                                         </div>
                                     </div>
                                 </form>
@@ -149,6 +203,8 @@
     <script src="../js/owl.carousel.min.js"></script>
     <script src="../js/jquery.stellar.min.js"></script>
     <script src="../js/jquery.magnific-popup.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/YouTubePopUp.js"></script>
     <script src="../js/select2.js"></script>
     <script src="../js/datepicker.js"></script>
@@ -159,6 +215,83 @@
     <!-- Load navbar and footer components -->
     <script src="../js/navbar-loader.js"></script>
     <script src="../js/footer-loader.js"></script>
-    <script src="../js/form-handler.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById("contactForm");
+            let isSubmitting = false; // Flag to prevent duplicate submissions
+            
+            if (form) {
+                form.addEventListener("submit", function(e) {
+                    e.preventDefault();
+                    
+                    // Prevent duplicate submissions
+                    if (isSubmitting) {
+                        return false;
+                    }
+                    
+                    // Set submission flag
+                    isSubmitting = true;
+                    
+                    // Disable submit button
+                    const submitBtn = form.querySelector('button[type="submit"]');
+                    const originalBtnText = submitBtn.innerHTML;
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<i class="ti-reload mr-2"></i> Sending...';
+                    
+                    // Show loading indicator
+                    Swal.fire({
+                        title: 'Sending...',
+                        text: 'Please wait while we process your request',
+                        allowOutsideClick: false,
+                        showConfirmButton: false,
+                        didOpen: () => {
+                            Swal.showLoading();
+                        }
+                    });
+                    
+                    const formData = new FormData(form);
+                    
+                    // DO NOT add parameters that are already in the form as hidden inputs
+                    // This prevents duplicate parameters
+                    
+                    fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Success
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Thank You!',
+                                text: 'Your message has been sent successfully. We will get back to you soon!',
+                                confirmButtonColor: '#30a8b4'
+                            });
+                            form.reset();
+                        } else {
+                            // Server error
+                            throw new Error(data.message || 'Form submission failed');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: error.message || 'Something went wrong. Please try again later.',
+                            confirmButtonColor: '#30a8b4'
+                        });
+                    })
+                    .finally(() => {
+                        // Reset submission flag and button state
+                        isSubmitting = false;
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnText;
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
