@@ -27,6 +27,40 @@
     
     <!-- Navbar -->
     <div id="navbar-container"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load the navbar component
+            fetch('../components/navbar-subdirectory-v2.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-container').innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error loading navbar:', error);
+                    // Fallback in case of error
+                    document.getElementById('navbar-container').innerHTML = `
+                        <nav class="navbar navbar-expand-lg">
+                            <div class="container">
+                                <!-- Logo -->
+                                <div class="logo-wrapper">
+                                    <a class="logo" href="../index.html"> <img src="../img/cglimg/logo4.png" class="logo-img" alt="" style="height: 100px; width: auto; max-width: none;"> </a>
+                                </div>
+                                <!-- Button -->
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"><i class="ti-menu"></i></span> </button>
+                                <!-- Menu -->
+                                <div class="collapse navbar-collapse" id="navbar">
+                                    <ul class="navbar-nav ms-auto">
+                                       <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                                       <li class="nav-item"><a class="nav-link" href="../Contact-us.html">Contact us</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    `;
+                });
+        });
+    </script>
     
     <!-- Tour Page Slider -->
     <header class="header slider">
@@ -113,8 +147,8 @@
                     <div class="sidebar">
                         <div class="right-sidebar">
                             <div class="right-sidebar item">
-                                <h3>Contact Us</h3>
-                                <form method="post" class="right-sidebar item-form contact__form" action="https://api.web3forms.com/submit" id="contactForm">
+                            <h3>Contact Us</h3>
+                            <form method="post" class="right-sidebar item-form contact__form" action="https://api.web3forms.com/submit" id="contactForm">
                                     <!-- Web3Forms Access Key -->
                                     <input type="hidden" name="access_key" value="371eb81f-603b-4b28-817b-74577c513da9">
                                     <input type="hidden" name="from_name" value="GCL-CONTACT">
@@ -220,8 +254,7 @@
     <script src="../js/custom.js"></script>
     
     <!-- Load navbar and footer components -->
-    <script src="../js/navbar-loader.js"></script>
-    <script src="../js/footer-loader.js"></script>
+   
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById("contactForm");
