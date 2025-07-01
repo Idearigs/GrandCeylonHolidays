@@ -1,9 +1,9 @@
-name: Auto Deploy to Client Server
+name: Auto Deploy to Server Without Removing .git
 
 on:
   push:
     branches:
-      - main  # Deploy on push to main branch
+      - main
 
 jobs:
   deploy:
@@ -13,14 +13,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install sshpass
-        run: sudo apt-get update && sudo apt-get install -y sshpass
+      - name: Install sshpass and rsync
+        run: sudo apt-get update && sudo apt-get install -y sshpass rsync
 
-      - name: Upload files to server
+      - name: Upload files using rsync (preserve server .git)
         env:
           SSHPASS: ${{ secrets.PASSWORD }}
         run: |
-          sshpass -e ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} "
-            rm -rf /home/graneoth/public_html/*
-          "
-          sshpass -e scp -o StrictHostKeyChecking=no -r ./ ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/home/graneoth/public_html/
+          RSYNC_RSH="sshpass -e ssh -o StrictHostKeyChecking=no"
+
+          rsync -avz \
+            --exclude='.git*' \
+            --exclude='.github/' \
+            --exclude='README.md' \
+            --exclude='deploy.yml' \
+            -e "$RSYNC_RSH" ./ ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/home/graneoth/public_html/
