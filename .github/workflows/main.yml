@@ -1,4 +1,4 @@
-name: Auto Deploy to Server Without Removing .git
+name: Git Pull on Server
 
 on:
   push:
@@ -10,21 +10,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout (to trigger pipeline)
         uses: actions/checkout@v3
 
-      - name: Install sshpass and rsync
-        run: sudo apt-get update && sudo apt-get install -y sshpass rsync
+      - name: Install sshpass
+        run: sudo apt-get update && sudo apt-get install -y sshpass
 
-      - name: Upload files using rsync (preserve server .git)
+      - name: Connect to server and pull latest code
         env:
           SSHPASS: ${{ secrets.PASSWORD }}
         run: |
-          RSYNC_RSH="sshpass -e ssh -o StrictHostKeyChecking=no"
+          sshpass -e ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} << 'EOF'
+            echo "✅ Successfully connected to server"
 
-          rsync -avz \
-            --exclude='.git*' \
-            --exclude='.github/' \
-            --exclude='README.md' \
-            --exclude='deploy.yml' \
-            -e "$RSYNC_RSH" ./ ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/home/graneoth/public_html/
+            cd /home/graneoth/public_html
+
+            echo "📦 Pulling latest changes from GitHub..."
+            git pull origin main
+
+            echo "🚀 Deployment complete!"
+          EOF
