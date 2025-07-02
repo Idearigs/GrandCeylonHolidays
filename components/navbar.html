@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container">
         <!-- Logo -->
-        <div class="logo-wrapper">
-            <a class="logo" href="index.html"> <img src="img/cglimg/logo4.png" class="logo-img" alt="" style="height: 100px; width: auto; max-width: none;"> </a>
+        <div class="logo-wrapper" style="margin-left: -25px;">
+            <a class="logo" href="index.html"> <img src="img/cglimg/logo4.png" class="logo-img" alt="" style="height: 100px; width: auto; max-width: none; max-height: 100%;" class="responsive-logo"> </a>
             <!-- <a class="logo" href="index.html"> <h2>TRAVOL <span>explore the world</span></h2> </a> -->
         </div>
         <!-- Button -->
@@ -48,3 +48,10 @@
         </div>
     </div>
 </nav>
+<style>
+    @media (max-width: 768px) {
+        .logo-img {
+            height: 57px !important;
+        }
+    }
+</style>

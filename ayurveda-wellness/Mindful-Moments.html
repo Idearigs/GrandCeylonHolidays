@@ -132,8 +132,15 @@
                 <div class="col-md-4">
                     <div class="sidebar">
                         <div class="right-sidebar">
-                            <div class="right-sidebar item">
-                                <h3>Contact Us</h3>
+                            <div class="right-sidebar item contact-form" style="background-color: #f8f9fa; border-radius: 12px; padding: 25px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); transform: translateY(-5px);">
+                                <style>
+                                @media (min-width: 992px) {
+                                    .sidebar .right-sidebar .contact-form {
+                                        margin-left: 20px;
+                                    }
+                                }
+                                </style>
+                                <h4 style="font-size: 22px; margin-bottom: 20px; color: #333; font-weight: 500; text-align: center;">Inquire About This Tour</h4>
                                 <form method="post" class="right-sidebar item-form contact__form" action="https://api.web3forms.com/submit" id="contactForm">
                                     <!-- Web3Forms Access Key -->
                                     <input type="hidden" name="access_key" value="371eb81f-603b-4b28-817b-74577c513da9">
@@ -144,16 +151,18 @@
                                     
                                     <!-- form elements -->
                                     <div class="row">
-                                        <input type="hidden" name="packageName" value="Asking about Mindful Moments Sri Lanka">
                                         <div class="col-md-12 form-group">
-                                            <input name="name" type="text" placeholder="Name *" required>
+                                            <input name="Package name" type="hidden" value="Asking about Mindful Moments">
                                         </div>
                                         <div class="col-md-12 form-group">
-                                            <input name="email" type="email" placeholder="Email *" required>
+                                            <input name="name" type="text" placeholder=" Name *" required style="border: none; border-bottom: 1px solid #ddd; border-radius: 0; padding: 10px 5px; margin-bottom: 15px; background-color: transparent; transition: all 0.3s;">
                                         </div>
                                         <div class="col-md-12 form-group">
-                                            <div class="input-group">
-                                                <select class="form-control" style="max-width: 120px;" name="country_code" required>
+                                            <input name="email" type="email" placeholder=" Email *" required style="border: none; border-bottom: 1px solid #ddd; border-radius: 0; padding: 10px 5px; margin-bottom: 15px; background-color: transparent; transition: all 0.3s;">
+                                        </div>
+                                        <div class="col-md-12 form-group">
+                                            <div class="input-group" style="border-bottom: 1px solid #ddd; margin-bottom: 15px;">
+                                                <select class="form-control" style="max-width: 100px; border: none; background-color: transparent;" name="country_code" required>
                                                     <option data-countryCode="US" value="+1">US +1</option>
                                                     <option data-countryCode="LK" value="+94">LK +94</option>
                                                     <option data-countryCode="IN" value="+91">IN +91</option>
@@ -177,11 +186,11 @@
                                                     <option data-countryCode="NP" value="+977">NP +977</option>
                                                     <option data-countryCode="MV" value="+960">MV +960</option>
                                                 </select>
-                                                <input name="phone" type="text" class="form-control" placeholder="Phone Number *" required>
+                                                <input name="phone" type="text" class="form-control" placeholder="Your Number *" required style="border: none; background-color: transparent;">
                                             </div>
                                         </div>
                                         <div class="col-md-12 form-group">
-                                            <select name="country" class="form-control" required>
+                                            <select name="country" class="form-control" required style="border: none; border-bottom: 1px solid #ddd; border-radius: 0; padding: 10px 5px; margin-bottom: 15px; background-color: transparent; transition: all 0.3s;">
                                                 <option value="">Select Your Country</option>
                                                 <option value="Afghanistan">Afghanistan</option>
                                                 <option value="Australia">Australia</option>
@@ -198,10 +207,10 @@
                                             </select>
                                         </div>
                                         <div class="col-md-12 form-group">
-                                            <textarea name="message" rows="4" placeholder="Your Message *" required></textarea>
+                                            <textarea name="message" rows="3" placeholder="Your Message *" required style="border: none; border-bottom: 1px solid #ddd; border-radius: 0; padding: 10px 5px; margin-bottom: 20px; background-color: transparent; transition: all 0.3s; resize: none;"></textarea>
                                         </div>
                                         <div class="col-md-12">
-                                            <button type="submit" class="butn-dark w-100" style="background: #30a8b4; transition: all 0.3s ease;"><span><i class="ti-email mr-2"></i> Send Message</span></button>
+                                            <button type="submit" class="butn-dark w-100" style="background: #30a8b4; transition: all 0.3s ease; border: none; border-radius: 30px; padding: 12px; font-weight: 500; letter-spacing: 0.5px;"><span><i class="ti-email mr-2"></i> Send Message</span></button>
                                         </div>
                                     </div>
                                 </form>
