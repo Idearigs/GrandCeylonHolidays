@@ -542,6 +542,19 @@ $("#preloader").fadeOut(700);
 	var wind = $(window);
 
 
+// Load Footer Content
+$(document).ready(function() {
+    // Check if footer-container element exists
+    if ($('#footer-container').length) {
+        // Load the footer.html content
+        $('#footer-container').load('../components/footer.html', function(response, status, xhr) {
+            if (status == 'error') {
+                console.error('Error loading footer:', xhr.status, xhr.statusText);
+            }
+        });
+    }
+});
+
 // Contact Form
 var form = $('.contact__form'),
     message = $('.contact__msg'),
