@@ -1,12 +1,17 @@
 /**
- * Gallery Loader - Dynamically loads images from the img/cglimg folder
+ * Gallery Loader - Dynamically loads images from the organized img/cglimg/client_images folder
+ * Works with the new structure created by the image_organizer.py script
  */
 document.addEventListener('DOMContentLoaded', function() {
     const galleryContainer = document.getElementById('dynamic-gallery');
-    const imageFolder = 'img/cglimg/';
+    const baseFolder = 'img/cglimg/client_images/';
     
-    // List of common image extensions to check
-    const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.JPG', '.JPEG', '.PNG', '.GIF'];
+    // Image type folders created by the organizer script
+    const imageFolders = {
+        jpg: baseFolder + 'jpg/',
+        jpeg: baseFolder + 'jpeg/',
+        gif: baseFolder + 'gif/'
+    };
     
     // Function to load all gallery images
     function loadGalleryImages() {
@@ -25,8 +30,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Function to add an image to our collection
         function addImage(filename) {
-            const path = imageFolder + filename;
-            const title = filename.split('.')[0].replace(/_/g, ' ');
+            const path = 'img/cglimg/client_images/jpg/' + filename;
+            // Extract just the number for the title
+            const title = 'Image ' + filename.split('.')[0];
             images.push({
                 path: path,
                 filename: filename,
@@ -34,88 +40,63 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
         
-        // Comprehensive list of all images in the folder
-        // This ensures we include all 219 images
-        const allImages = [
-            // Date-based filenames
-            '20181102_103640.jpg',
-            '20181102_120107.jpg',
-            '20181129_070403.jpg',
-            '20230727_121854(1).jpeg',
-            '20230727_121854.jpeg',
-            '20230727_190627.jpeg',
-            '20230728_125355.jpeg',
-            '20230728_190525.jpeg',
-            '20230730_121012.jpeg',
-            '20230803_180054.jpeg',
-            '20230930_105501.jpeg',
-            '20230930_121808.jpeg',
-            '20231023_104415.jpeg',
-            '20231109_102126.jpeg',
-            '20231109_104427.jpeg',
-            '20231125_174817.jpeg',
-            '20231129_060518.jpeg',
-            '20231129_075815.jpeg',
-            '20240104_120026.jpeg',
-            '20240104_132725.jpeg',
-            '20240104_132731(1).jpeg',
-            '20240104_132814.jpeg',
-            '20240104_155424(1).jpeg',
-            '20240104_155424.jpeg',
-            '20240109_102230(1).jpeg',
-            '20240109_102230.jpeg',
-            '20240109_102318(1).jpeg',
-            '20240109_102318.jpeg',
-            '20240109_102527(1).jpeg',
-            '20240109_102527.jpeg',
-            '20240118_112640(1).jpeg',
-            '20240227_122257.jpeg',
-            '20240301_144012(1).jpeg',
-            '20240301_144012.jpeg',
-            '20240301_144309(1).jpeg',
-            '20240301_151010.jpeg',
-            
-            // DSC format images
-            'DSC_0001.JPG',
-            'DSC_0011(1).JPG',
-            'DSC_0028(1).JPG',
-            'DSC_0033 (2).JPG',
-            'DSC_0033(1).JPG',
-            'DSC_0033.JPG',
-            'DSC_0039.JPG',
-            'DSC_0042(1).JPG',
-            'DSC_0042.JPG',
-            'DSC_0045.JPG',
-            'DSC_0046.JPG',
-            'DSC_0052.JPG',
-            'DSC_0099(1).JPG',
-            'DSC_0101.JPG'
-        ];
-        
-        // Add all the known images
-        allImages.forEach(img => addImage(img));
-        
-        // Add DSC_XXXX.JPG pattern images (from 0001 to 0200)
-        for (let i = 1; i <= 200; i++) {
-            const paddedNum = i.toString().padStart(4, '0');
-            const filename = `DSC_${paddedNum}.JPG`;
-            // Skip if already in the list
-            if (!allImages.includes(filename)) {
+        // Function to load all images from the jpg and jpeg folders
+        function loadBackupImages() {
+            // Load JPG images (1.jpg to 151.jpg)
+            for (let i = 1; i <= 151; i++) {
+                const filename = i + '.jpg';
                 addImage(filename);
             }
+            
+            // Load JPEG images from the jpeg folder (303.jpeg through 329.jpeg)
+            for (let i = 303; i <= 329; i++) {
+                const filename = i + '.jpeg';
+                // Special case for jpeg files - they're in a different folder
+                const path = 'img/cglimg/client_images/jpeg/' + filename;
+                const title = 'Image ' + i;
+                images.push({
+                    path: path,
+                    filename: filename,
+                    title: title
+                });
+            }
+            
+            // Process images after a short delay
+            setTimeout(processImages, 300);
         }
         
-        // Clear the gallery container
-        galleryContainer.innerHTML = '';
+        // Load images from the backup folder
+        loadBackupImages();
         
-        // Create gallery items for each image
-        let validImageCount = 0;
-        let processedCount = 0;
+        // This function is no longer needed as we're using the backup folder directly
         
-        // Process each image
-        images.forEach((image, index) => {
-            // Create a new image element to check if the image exists
-            const img = new Image();
+        // Function to process all images
+        function processImages() {
+            // Clear the gallery container
+            galleryContainer.innerHTML = '';
+            
+            // If no images were found yet, show a message
+            if (images.length === 0) {
+                galleryContainer.innerHTML = '<div class="col-md-12 text-center"><p>Loading gallery images...</p></div>';
+                // Check again in a second - some images might still be loading
+                setTimeout(() => {
+                    if (images.length === 0) {
+                        galleryContainer.innerHTML = '<div class="col-md-12 text-center"><p>No images found in the gallery folder.</p></div>';
+                    } else {
+                        processImages(); // Try again with the images we found
+                    }
+                }, 1000);
+                return;
+            }
+            
+            // Create gallery items for each image
+            let validImageCount = 0;
+            let processedCount = 0;
+            
+            // Process each image
+            images.forEach((image, index) => {
+                // Create a new image element to check if the image exists
+                const img = new Image();
             
             // Track processed images
             img.onload = function() {
@@ -192,7 +173,13 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Start loading the image to check if it exists
             img.src = image.path;
-        });
+            });
+            
+            // If we have very few images, try to find more after a delay
+            if (images.length < 10) {
+                setTimeout(generateImageList, 500);
+            }
+        }
     }
     
     // Load the gallery
