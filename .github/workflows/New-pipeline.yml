@@ -25,6 +25,9 @@ jobs:
             echo "✅ Connected to server. Navigating to project directory..."
             cd /home/graneoth/public_html
             echo "📦 Pulling latest changes from GitHub..."
+            git config --global user.name "GitHub Deployer"
+            git config --global user.email "deployer@example.com"
             git config pull.rebase false
             git pull origin main
-            echo "🚀 Deployment successful!""
+            echo "🚀 Deployment successful!"
+
