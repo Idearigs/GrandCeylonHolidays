@@ -27,7 +27,8 @@ jobs:
             echo "📦 Pulling latest changes from GitHub..."
             git config --global user.name "GitHub Deployer"
             git config --global user.email "deployer@example.com"
-            git config pull.rebase false
+            git reset --hard
             git pull origin main
             echo "🚀 Deployment successful!"
+
 
