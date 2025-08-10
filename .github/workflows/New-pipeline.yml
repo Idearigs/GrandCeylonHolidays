@@ -25,5 +25,11 @@ jobs:
             echo "✅ Connected to server. Navigating to project directory..."
             cd /home/graneoth/public_html
             echo "📦 Pulling latest changes from GitHub..."
-            git pull origin main
+            git config --global user.name "Minuka2022"
+            git config --global user.email "minukadev404@gmail.com"
+            git fetch origin main
+            git reset --hard origin/main
             echo "🚀 Deployment successful!"
+
+
+
